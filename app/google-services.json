@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "467484516649",
+    "project_id": "planner-dc799",
+    "storage_bucket": "planner-dc799.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467484516649:android:331ac07171941116371738",
+        "android_client_info": {
+          "package_name": "org.techtown.planner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467484516649-os5tsi3lb4pmp261kdkh212vkrbpkrcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBteeXesPwHlKy8dVh_btkmI5opCtUlfvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467484516649-os5tsi3lb4pmp261kdkh212vkrbpkrcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
