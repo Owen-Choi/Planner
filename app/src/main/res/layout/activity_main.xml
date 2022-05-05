@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".domain.member.MainActivity"
     android:orientation="vertical"
     android:background="@drawable/background_color">
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/SignInEmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -19,7 +19,7 @@
         android:textColorHint="#8BC34A" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/SignInPasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
