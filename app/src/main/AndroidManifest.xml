@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
         <activity
-            android:name=".domain.member.MainActivity"
+            android:name=".service.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".service.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -10,13 +10,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MemberServiceImpl implements MemberService{
+import java.io.Serializable;
+
+public class MemberServiceImpl implements MemberService {
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     public void SignUp(Member member) {
         // firestore에 인자로 넘어온 member 저장하기
+        Log.e("MemberServiceImpl", "멤버 객체 들어옴 : " + member.getEmail());
     }
 
     @Override
