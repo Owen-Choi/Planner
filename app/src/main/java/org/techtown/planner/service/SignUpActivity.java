@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.techtown.planner.AppConfig;
 import org.techtown.planner.R;
 import org.techtown.planner.domain.member.Member;
@@ -45,7 +47,13 @@ public class SignUpActivity extends AppCompatActivity {
             NicknameValue = Nickname.getText().toString();
             if(conditionChecker(EmailValue, PasswordValue, NicknameValue)) {
                 Member member = new Member(EmailValue, PasswordValue, NicknameValue);
-                memberService.SignUp(member);
+                if(memberService.SignUp(member)) {
+                    Log.e("SignUpActivity", "회원가입 완료");
+                } else {
+                    Log.e("SignUpActivity", "회원가입 실패");
+                }
+            } else {
+                Log.e("SignUpActivity", "회원가입 조건 불충분");
             }
         }
     };
