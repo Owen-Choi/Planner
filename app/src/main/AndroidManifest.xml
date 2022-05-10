@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
         <activity
+            android:name=".service.HomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".service.SignUpActivity"
             android:exported="true" />
         <activity
