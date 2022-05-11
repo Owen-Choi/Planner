@@ -1,4 +1,4 @@
-package org.techtown.planner.service;
+package org.techtown.planner.service.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,9 +15,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.techtown.planner.AppConfig;
 import org.techtown.planner.R;
-import org.techtown.planner.domain.member.MemberService;
 
 public class MainActivity extends AppCompatActivity {
 //    AppConfig appConfig = new AppConfig();

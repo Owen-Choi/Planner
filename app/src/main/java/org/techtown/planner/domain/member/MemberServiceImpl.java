@@ -2,7 +2,6 @@ package org.techtown.planner.domain.member;
 
 import static java.lang.Thread.sleep;
 
-import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -13,8 +12,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.techtown.planner.service.MainActivity;
 
 public class MemberServiceImpl extends AppCompatActivity implements MemberService{
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
