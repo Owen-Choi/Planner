@@ -1,4 +1,4 @@
-package org.techtown.planner.service;
+package org.techtown.planner.service.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

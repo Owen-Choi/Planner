@@ -1,4 +1,4 @@
-package org.techtown.planner.service;
+package org.techtown.planner.service.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,5 +12,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        // 바텀 네비게이션 바 이용해서 프레그먼트로?
+
     }
 }

@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
         <activity
-            android:name=".service.HomeActivity"
+            android:name=".service.activities.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".service.SignUpActivity"
+            android:name=".service.activities.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".service.MainActivity"
+            android:name=".service.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
