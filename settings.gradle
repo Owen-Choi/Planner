@@ -4,6 +4,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven {
+            url 'https://maven.google.com'
+        }
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "Planner"
