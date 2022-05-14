@@ -4,12 +4,19 @@
     <string name="signIn_pw">Password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="my_header_title">
+    <string-array name="header_title">
         <item></item>
         <item>Mon</item>
         <item>Tue</item>
         <item>Wed</item>
         <item>Thu</item>
         <item>Fri</item>
+    </string-array>
+    <string-array name="days">
+        <item >Mon</item>
+        <item >Tue</item>
+        <item >Wed</item>
+        <item >Thu</item>
+        <item >Fri</item>
     </string-array>
 </resources>

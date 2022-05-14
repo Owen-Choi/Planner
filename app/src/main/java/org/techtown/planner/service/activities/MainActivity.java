@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
-                        StartActivity(schedule_test_activity.class);
+                        StartActivity(TimetableActivity.class);
                     } else {
                         Log.e("SignIn", "로그인 실패");
                     }

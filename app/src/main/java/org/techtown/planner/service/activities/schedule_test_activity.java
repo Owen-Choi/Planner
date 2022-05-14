@@ -42,11 +42,11 @@ public class schedule_test_activity extends AppCompatActivity {
         timetable.setOnStickerSelectEventListener(new TimetableView.OnStickerSelectedListener() {
             @Override
             public void OnStickerSelected(int idx, ArrayList<Schedule> schedules) {
-//                Log.e("temp", "time : " + schedules.get(idx).getStartTime().getHour() +
-//                        " : " + schedules.get(idx).getStartTime().getMinute());
-                for(int i=0; i<schedules.size(); i++) {
-                    Log.e("temp", "schedule " + i + " : " + schedules.get(i).getStartTime().getHour());
-                }
+                Log.e("temp", "time : " + schedules.get(idx).getStartTime().getHour() +
+                        " : " + schedules.get(idx).getStartTime().getMinute());
+//                for(int i=0; i<schedules.size(); i++) {
+//                    Log.e("temp", "schedule " + i + " : " + schedules.get(i).getStartTime().getHour());
+//                }
             }
         });
     }
