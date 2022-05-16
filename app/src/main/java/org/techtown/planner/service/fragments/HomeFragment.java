@@ -1,5 +1,7 @@
 package org.techtown.planner.service.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -97,6 +100,7 @@ public class HomeFragment extends Fragment {
     // floating button 애니메이션이랑 하위메뉴 담당하는 함수
     private void showFloatingMenu(){
         isOpened = true;
+        EnableFloatingButtons();
         add.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         save.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
         load.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
@@ -105,7 +109,28 @@ public class HomeFragment extends Fragment {
         isOpened = false;
         add.animate().translationY(0);
         save.animate().translationY(0);
-        load.animate().translationY(0);
+        // 뒤에 가려져 있어야 할 floating button이 앞으로 튀어나와서 메인 버튼을 가린다.
+        // 그래서 load 버튼까지 애니메이션이 끝나면 서브 버튼들을 disabled로 바꿀려고 한다.
+        // load 버튼 자체에 애니메이션 리스너가 붙기 때문에 버튼을 닫았을 때인 isOpened = false인 경우에만
+        // 서브버튼들을 비활성화 시켜주기로 한다.
+        load.animate().translationY(0).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                if(!isOpened)
+                    DisableFloatingButtons();
+            }
+        });
+    }
+    private void DisableFloatingButtons() {
+        add.setEnabled(false);
+        save.setEnabled(false);
+        load.setEnabled(false);
+    }
+    private void EnableFloatingButtons() {
+        add.setEnabled(true);
+        save.setEnabled(true);
+        load.setEnabled(true);
     }
 
     // 저장 및 불러오기 함수
