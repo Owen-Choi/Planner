@@ -1,5 +1,6 @@
 package org.techtown.planner.service.activities;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -18,6 +20,7 @@ import com.github.tlaabs.timetableview.Time;
 
 import org.techtown.planner.R;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class EditActivity extends AppCompatActivity implements View.OnClickListener {
@@ -94,10 +97,11 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+        // 시계 돌아가는 부분 코드.
         startTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerDialog dialog = new TimePickerDialog(context,listener,schedule.getStartTime().getHour(), schedule.getStartTime().getMinute(), false);
+                TimePickerDialog dialog = new TimePickerDialog(context, listener,schedule.getStartTime().getHour(), schedule.getStartTime().getMinute(), false);
                 dialog.show();
             }
 
