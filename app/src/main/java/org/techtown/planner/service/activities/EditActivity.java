@@ -1,6 +1,5 @@
 package org.techtown.planner.service.activities;
 
-import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -30,7 +28,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.techtown.planner.R;
 import org.techtown.planner.domain.schedule.ScheduleInfo;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class EditActivity extends AppCompatActivity implements View.OnClickListener {
@@ -163,15 +160,11 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                     finish();
                 }
                 else if(mode == TimetableActivity.REQUEST_EDIT){
-                    // editIdx를 기준으로 먼저 디비에서 스케쥴을 지운다.
-                    // 수정 : editIdx 활용할 수 없게 되었음. DB순회하면서 정보 찾아서 지워주어야 할 것 같다.
-                    findAndDelete();
-                    initAndInsert();
-                    inputDataProcessing();
+                    deleteAndInsert();
                     Intent i = new Intent();
+                    inputDataProcessing();
                     ArrayList<Schedule> schedules = new ArrayList<Schedule>();
-                    // 스케쥴을 다시 설정해준다.
-                    // 기존 디비를 지우고 값을 다시 넣어주는 작업을 여기서 수행해야할 듯.
+                    Log.e("woong", "onClick: " + schedule.getClassTitle());
                     schedules.add(schedule);
                     i.putExtra("idx",editIdx);
                     i.putExtra("schedules",schedules);
@@ -181,6 +174,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.delete_btn:
                 Intent i = new Intent();
+                deleteFromDB();
                 i.putExtra("idx",editIdx);
                 setResult(RESULT_OK_DELETE, i);
                 finish();
@@ -233,11 +227,37 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void findAndDelete() {
+    private void deleteAndInsert() {
         // 이전 데이터는 잘 들고있다. submit 누르면 이 함수가 호출되고,
         // 여기서 이 이전 데이터 활용해서 DB에서 기존 값 삭제해주고 바뀐 값으로 다시 넣어주기.
         // 바뀐 값 다시 넣어주는 기능은 기존에 만들어 둔 InsertSchedule함수가 수행한다.
-        String temp = schedule.getDay() + schedule.getClassTitle();
-        Log.e("temp", " : " + temp);
+        String searchKey = schedule.getDay() + " " + schedule.getClassTitle();
+        db.collection("Schedule").document(user.getUid())
+                .collection("Personal_schedules").document(searchKey).delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Log.e("woong", "삭제 완료");
+                            // 바뀐 데이터 최신화 해주고 다시 넣어주기
+                            inputDataProcessing();
+                            initAndInsert();
+                        }
+                    }
+                });
+    }
+
+    private void deleteFromDB() {
+        String searchKey = schedule.getDay() + " " + schedule.getClassTitle();
+        db.collection("Schedule").document(user.getUid())
+                .collection("Personal_schedules").document(searchKey).delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Log.e("woong", "삭제 완료");
+                        }
+                    }
+                });
     }
 }

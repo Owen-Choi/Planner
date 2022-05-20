@@ -158,6 +158,7 @@ public class HomeFragment extends Fragment {
                     ArrayList<Schedule> item = (ArrayList<Schedule>) data.getSerializableExtra("schedules");
                     int temper = data.getIntExtra("idx", -1);
                     Log.e("woong", " : " + temper);
+                    // 파베에서 시간표 리스트를 받아오면 이런 형식으로 구성해서 띄워줄 수 있을 것 같다.
                     timetable.add(item);
                 }
                 break;
@@ -166,6 +167,8 @@ public class HomeFragment extends Fragment {
                 if (resultCode == EditActivity.RESULT_OK_EDIT) {
                     int idx = data.getIntExtra("idx", -1);
                     ArrayList<Schedule> item = (ArrayList<Schedule>) data.getSerializableExtra("schedules");
+                    // edit하면 강의명 강의장소 등이 업데이트가 안된다.
+                    Log.e("woong", " : " + item.get(0).getClassTitle());
                     timetable.edit(idx, item);
                 }
                 /** Edit -> Delete */
