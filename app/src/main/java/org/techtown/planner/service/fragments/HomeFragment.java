@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -19,10 +20,19 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.github.tlaabs.timetableview.Schedule;
+import com.github.tlaabs.timetableview.Time;
 import com.github.tlaabs.timetableview.TimetableView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.techtown.planner.R;
+import org.techtown.planner.domain.schedule.ScheduleInfo;
 import org.techtown.planner.service.activities.EditActivity;
 import org.techtown.planner.service.activities.HomeActivity;
 
@@ -32,11 +42,15 @@ public class HomeFragment extends Fragment {
 
     public static final int REQUEST_ADD = 1;
     public static final int REQUEST_EDIT = 2;
+    private static final String TAG = "HomeFragment";
     private View view;
     private TimetableView timetable;
     // Floating button 관련 변수
     FloatingActionButton add, save, load;
     boolean isOpened = false;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = firebaseAuth.getCurrentUser();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +68,6 @@ public class HomeFragment extends Fragment {
 
         // 시간표 객체 및 listener 초기화
         timetable = view.findViewById(R.id.timetable);
-
         timetable.setOnStickerSelectEventListener(new TimetableView.OnStickerSelectedListener() {
             @Override
             public void OnStickerSelected(int idx, ArrayList<Schedule> schedules) {
@@ -65,7 +78,9 @@ public class HomeFragment extends Fragment {
                 startActivityForResult(i,REQUEST_EDIT);
             }
         });
-
+        // 재부팅이나 화면 전환시 시간표가 날아가는 현상을 막기 위해
+        // view가 생성될때 파이어베이스에 있는 시간 정보를 다 불러와서 넣어준다.
+        showSchedule();
         // view가 아니라 inflate로 만든 새 객체를 return하면 view가 반영이 안됨.
         return view;
     }
@@ -156,8 +171,7 @@ public class HomeFragment extends Fragment {
             case REQUEST_ADD:
                 if (resultCode == EditActivity.RESULT_OK_ADD) {
                     ArrayList<Schedule> item = (ArrayList<Schedule>) data.getSerializableExtra("schedules");
-                    int temper = data.getIntExtra("idx", -1);
-                    Log.e("woong", " : " + temper);
+                    // 파베에서 시간표 리스트를 받아오면 이런 형식으로 구성해서 띄워줄 수 있을 것 같다.
                     timetable.add(item);
                 }
                 break;
@@ -175,6 +189,37 @@ public class HomeFragment extends Fragment {
                 }
                 break;
         }
+    }
+
+    private void showSchedule() {
+        db.collection("Schedule").document(user.getUid()).collection("Personal_schedules")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Schedule newSchedule = getStructed(document);
+                        ArrayList<Schedule> itemList = new ArrayList<>();
+                        itemList.add(newSchedule);
+                        timetable.add(itemList);
+                    }
+                }
+            }
+        });
+    }
+
+    private Schedule getStructed(QueryDocumentSnapshot document) {
+        ScheduleInfo temp = document.toObject(ScheduleInfo.class);
+        Time StartTime = new Time(temp.getStartTimeHour(), temp.getStartTimeMinute());
+        Time EndTime = new Time(temp.getEndTimeHour(), temp.getEndTimeMinute());
+        Schedule newSchedule = new Schedule();
+        newSchedule.setStartTime(StartTime);
+        newSchedule.setEndTime(EndTime);
+        newSchedule.setDay(temp.getDay());
+        newSchedule.setClassPlace(temp.getClassPlace());
+        newSchedule.setClassTitle(temp.getClassTitle());
+        newSchedule.setProfessorName(temp.getProfessorName());
+        return newSchedule;
     }
 
 }

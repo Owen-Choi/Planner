@@ -1,21 +1,31 @@
 package org.techtown.planner.domain.schedule;
 
-public class ScheduleInfo {
+import java.io.Serializable;
+
+public class ScheduleInfo implements Serializable {
     int StartTimeHour;
     int StartTimeMinute;
     int EndTimeHour;
     int EndTimeMinute;
     String uid;
-    String className;
+    String classTitle;
+    String classPlace;
+    String professorName;
     int day;
 
-    public ScheduleInfo(int startTimeHour, int startTimeMinute, int endTimeHour, int endTimeMinute, String uid, String className, int day) {
+    public ScheduleInfo() {
+    }
+
+    public ScheduleInfo(int startTimeHour, int startTimeMinute, int endTimeHour, int endTimeMinute,
+                        String uid, String classTitle, String classPlace, String professorName, int day) {
         StartTimeHour = startTimeHour;
         StartTimeMinute = startTimeMinute;
         EndTimeHour = endTimeHour;
         EndTimeMinute = endTimeMinute;
         this.uid = uid;
-        this.className = className;
+        this.classTitle = classTitle;
+        this.classPlace = classPlace;
+        this.professorName = professorName;
         this.day = day;
     }
 
@@ -59,12 +69,28 @@ public class ScheduleInfo {
         this.uid = uid;
     }
 
-    public String getClassName() {
-        return className;
+    public String getClassTitle() {
+        return classTitle;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setClassTitle(String classTitle) {
+        this.classTitle = classTitle;
+    }
+
+    public String getClassPlace() {
+        return classPlace;
+    }
+
+    public void setClassPlace(String classPlace) {
+        this.classPlace = classPlace;
+    }
+
+    public String getProfessorName() {
+        return professorName;
+    }
+
+    public void setProfessorName(String professorName) {
+        this.professorName = professorName;
     }
 
     public int getDay() {
