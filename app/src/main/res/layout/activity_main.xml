@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".service.activities.MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/background_color">
+    android:background="@drawable/background_color"
+    android:id="@+id/activity_main">
 
     <ImageView
         android:id="@+id/imageView"
