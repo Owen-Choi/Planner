@@ -5,7 +5,11 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -17,8 +21,14 @@ import android.widget.TimePicker;
 
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.Time;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.planner.R;
+import org.techtown.planner.domain.schedule.ScheduleInfo;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -44,6 +54,10 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
     private Schedule schedule;
     private int editIdx;
+
+    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private final FirebaseUser user = firebaseAuth.getCurrentUser();
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,15 +155,23 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                     Intent i = new Intent();
                     ArrayList<Schedule> schedules = new ArrayList<Schedule>();
                     //you can add more schedules to ArrayList
+                    // 디비에 값 넣어주는 작업 여기서 수행하자.
+                    initAndInsert();
                     schedules.add(schedule);
                     i.putExtra("schedules",schedules);
                     setResult(RESULT_OK_ADD,i);
                     finish();
                 }
                 else if(mode == TimetableActivity.REQUEST_EDIT){
+                    // editIdx를 기준으로 먼저 디비에서 스케쥴을 지운다.
+                    // 수정 : editIdx 활용할 수 없게 되었음. DB순회하면서 정보 찾아서 지워주어야 할 것 같다.
+                    findAndDelete();
+                    initAndInsert();
                     inputDataProcessing();
                     Intent i = new Intent();
                     ArrayList<Schedule> schedules = new ArrayList<Schedule>();
+                    // 스케쥴을 다시 설정해준다.
+                    // 기존 디비를 지우고 값을 다시 넣어주는 작업을 여기서 수행해야할 듯.
                     schedules.add(schedule);
                     i.putExtra("idx",editIdx);
                     i.putExtra("schedules",schedules);
@@ -181,5 +203,41 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         schedule.setClassTitle(subjectEdit.getText().toString());
         schedule.setClassPlace(classroomEdit.getText().toString());
         schedule.setProfessorName(professorEdit.getText().toString());
+    }
+
+    // 새 ScheduleInfo 초기화한 후 DB에 값 넣어주는 함수 호출
+    private void initAndInsert() {
+        ScheduleInfo newSchedule = new ScheduleInfo(
+                schedule.getStartTime().getHour(),
+                schedule.getStartTime().getMinute(),
+                schedule.getEndTime().getHour(),
+                schedule.getEndTime().getMinute(),
+                user.getUid(),
+                schedule.getClassTitle(),
+                schedule.getDay());
+        InsertSchedule(newSchedule);
+    }
+
+    private void InsertSchedule(ScheduleInfo scheduleInfo) {
+        // DB 구조는
+        db.collection("Schedule").document(user.getUid())
+                .collection("Personal_schedules")
+                .document(scheduleInfo.getDay() + " " + scheduleInfo.getClassName()).set(scheduleInfo)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Log.e("woong", "DB 삽입 성공");
+                }
+            }
+        });
+    }
+
+    private void findAndDelete() {
+        // 이전 데이터는 잘 들고있다. submit 누르면 이 함수가 호출되고,
+        // 여기서 이 이전 데이터 활용해서 DB에서 기존 값 삭제해주고 바뀐 값으로 다시 넣어주기.
+        // 바뀐 값 다시 넣어주는 기능은 기존에 만들어 둔 InsertSchedule함수가 수행한다.
+        String temp = schedule.getDay() + schedule.getClassTitle();
+        Log.e("temp", " : " + temp);
     }
 }
