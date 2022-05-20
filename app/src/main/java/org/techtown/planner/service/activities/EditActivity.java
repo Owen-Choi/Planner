@@ -208,6 +208,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 schedule.getEndTime().getMinute(),
                 user.getUid(),
                 schedule.getClassTitle(),
+                schedule.getClassPlace(),
+                schedule.getProfessorName(),
                 schedule.getDay());
         InsertSchedule(newSchedule);
     }
@@ -216,7 +218,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         // DB 구조는
         db.collection("Schedule").document(user.getUid())
                 .collection("Personal_schedules")
-                .document(scheduleInfo.getDay() + " " + scheduleInfo.getClassName()).set(scheduleInfo)
+                .document(scheduleInfo.getDay() + " " + scheduleInfo.getClassTitle()).set(scheduleInfo)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
