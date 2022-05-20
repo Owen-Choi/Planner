@@ -156,6 +156,8 @@ public class HomeFragment extends Fragment {
             case REQUEST_ADD:
                 if (resultCode == EditActivity.RESULT_OK_ADD) {
                     ArrayList<Schedule> item = (ArrayList<Schedule>) data.getSerializableExtra("schedules");
+                    int temper = data.getIntExtra("idx", -1);
+                    Log.e("woong", " : " + temper);
                     timetable.add(item);
                 }
                 break;

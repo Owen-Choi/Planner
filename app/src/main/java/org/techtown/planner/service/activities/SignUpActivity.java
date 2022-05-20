@@ -12,6 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.planner.AppConfig;
@@ -24,6 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
 //    MemberService memberService;
     EditText Email, Password, Nickname;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +47,17 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
     }
 
+
     private void SignUp(Member member) {
         firebaseAuth.createUserWithEmailAndPassword(member.getEmail(), member.getPw()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     Log.e("SignUp", "계정생성 성공");
+                    // 생성한 계정의 firebaseAuth 바로 가져오기. uid를 얻기 위함.
+                    user = firebaseAuth.getCurrentUser();
                     // 계정 생성에 성공할 경우만 DB에 정보를 저장.
-                    firebaseFirestore.collection("user").document(member.getNickname()).set(member).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    firebaseFirestore.collection("user").document(user.getUid()).set(member).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
