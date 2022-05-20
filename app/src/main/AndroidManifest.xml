@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.techtown.planner">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
+        <activity android:name=".service.fragments.EachGroupActivity"
+            android:exported="true" />
         <activity
             android:name=".service.activities.schedule_test_activity"
             android:exported="true" />
@@ -23,14 +26,16 @@
         <activity
             android:name=".service.activities.MainActivity"
             android:exported="true">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".service.activities.EditActivity"/>
-        <activity android:name=".service.activities.TimetableActivity"/>
+        <activity android:name=".service.activities.EditActivity" />
+        <activity android:name=".service.activities.TimetableActivity" />
     </application>
 
 </manifest>
