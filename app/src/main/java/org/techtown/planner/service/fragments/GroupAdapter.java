@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.techtown.planner.R;
+import org.techtown.planner.domain.Group.GroupContent;
 
 import java.util.ArrayList;
 

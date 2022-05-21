@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".service.activities.GroupScheduleSample">
+
+
+    <com.github.tlaabs.timetableview.TimetableView
+        android:id="@+id/groupTimetable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:column_count="6"
+        app:row_count="12"
+        app:cell_height="50dp"
+        app:side_cell_width="30dp"
+        app:header_title="@array/header_title"
+        app:sticker_colors="@array/default_sticker_color"
+        app:start_time="9"
+        app:header_highlight_color="@color/teal_700"
+        />
+
+</FrameLayout>

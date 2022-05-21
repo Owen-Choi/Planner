@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
-        <activity android:name=".service.fragments.EachGroupActivity"
+        <activity
+            android:name=".service.activities.GroupScheduleSample"
+            android:exported="true" />
+        <activity
+            android:name=".service.activities.EachGroupActivity"
             android:exported="true" />
         <activity
             android:name=".service.activities.schedule_test_activity"
@@ -26,8 +30,6 @@
         <activity
             android:name=".service.activities.MainActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
