@@ -5,17 +5,21 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GroupContent {
-    private String name;
+    private String gname;
 
-    public GroupContent(String name) {
-        this.name = name;
+    public GroupContent(){
+    }
+
+    public GroupContent(String gname)
+    {
+        this.gname = gname;
     }
 
     public String getName() {
-        return name;
+        return gname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String gname) {
+        this.gname = gname;
     }
 }
