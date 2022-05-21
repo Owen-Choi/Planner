@@ -1,4 +1,4 @@
-package org.techtown.planner.service.fragments;
+package org.techtown.planner.service.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

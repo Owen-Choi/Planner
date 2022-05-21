@@ -26,10 +26,10 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.techtown.planner.R;
+import org.techtown.planner.domain.Group.GroupContent;
+import org.techtown.planner.service.activities.EachGroupActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class GroupFragment extends Fragment {
 

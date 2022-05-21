@@ -1,4 +1,4 @@
-package org.techtown.planner.service.fragments;
+package org.techtown.planner.domain.Group;
 
 import android.os.Bundle;
 
