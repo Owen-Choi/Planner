@@ -113,6 +113,5 @@ public class GroupScheduleSample extends AppCompatActivity {
         unavailable.add(tempSchedule5);
 
         timetable.add(unavailable);
-        // 나머지 시간을 어떻게 가능 시간대에 추가하지?
     }
 }

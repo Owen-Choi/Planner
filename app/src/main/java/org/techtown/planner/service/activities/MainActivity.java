@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.planner.R;
@@ -22,12 +23,14 @@ public class MainActivity extends AppCompatActivity {
 //    MemberService memberService = appConfig.memberService();
     EditText EmailInput, PasswordInput;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        AutomaticSignIn();
         EmailInput = findViewById(R.id.SignInEmailEditText);
         PasswordInput = findViewById(R.id.SignInPasswordEditText);
         findViewById(R.id.SignInButton).setOnClickListener(SignInClickListener);
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
-                        StartActivity(GroupScheduleSample.class);
+                        StartActivity(HomeActivity.class);
                     } else {
                         Log.e("SignIn", "로그인 실패");
                     }
@@ -102,4 +105,10 @@ public class MainActivity extends AppCompatActivity {
             StartActivity(SignUpActivity.class);
         }
     };
+
+    private void AutomaticSignIn() {
+        if(firebaseUser != null) {
+            StartActivity(HomeActivity.class);
+        }
+    }
 }

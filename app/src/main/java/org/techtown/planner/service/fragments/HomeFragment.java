@@ -2,6 +2,9 @@ package org.techtown.planner.service.fragments;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.Time;
@@ -44,6 +48,7 @@ public class HomeFragment extends Fragment {
     // Floating button 관련 변수
     FloatingActionButton add, clear;
     boolean isOpened = false;
+
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -108,8 +113,7 @@ public class HomeFragment extends Fragment {
 //                    break;
                 case R.id.clear_floating_button:
                     // DB에서 일정 다 지워주고 테이블 클리어
-                    ClearDB();
-                    timetable.removeAll();
+                    DialogManager();
                     break;
             }
         }
@@ -256,6 +260,30 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private void DialogManager() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                .setTitle("Timetable Clear")
+                .setMessage("시간표를 초기화 하시겠습니까?")
+                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ClearDB();
+                        timetable.removeAll();
+                        Toast.makeText(getActivity(), "table cleared", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
     }
 
 }
