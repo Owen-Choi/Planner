@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.planner.R;
 import org.techtown.planner.service.activities.MainActivity;
+import org.techtown.planner.service.activities.MemberInfoActivity;
 import org.techtown.planner.service.activities.Password_Init_Activity;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -65,7 +66,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         memberInfo.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(@NonNull Preference preference) {
-                return false;
+                StartActivity(MemberInfoActivity.class);
+                return true;
             }
         });
 
