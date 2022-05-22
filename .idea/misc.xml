@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.176" />
+        <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.1" />
         <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/content_group.xml" value="0.2" />
         <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_each_group.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_group.xml" value="0.2" />
         <entry key="..\:/Users/dlrhd/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.19166666666666668" />
@@ -17,10 +18,8 @@
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_kitty.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_profile.xml" value="0.2515625" />
-        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.1693840579710145" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_edit.xml" value="0.1743659420289855" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_home.xml" value="0.21693840579710144" />
-        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_list_from_chae_chae.xml" value="0.1693840579710145" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_main.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_member_info.xml" value="0.264" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_password_init.xml" value="0.11614583333333334" />
