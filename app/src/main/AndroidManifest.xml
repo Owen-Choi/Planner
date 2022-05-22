@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
         <activity
+            android:name=".service.activities.Password_Init_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".service.activities.SettingsActivity"
+            android:exported="true" />
+        <activity
             android:name=".service.activities.GroupScheduleSample"
             android:exported="true" />
         <activity
