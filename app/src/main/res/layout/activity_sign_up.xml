@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="BitrhDate"
+                android:hint="BitrhDate(YYYY-MM-DD)"
                 android:inputType="date"
                 android:textColor="#8BC34A"
                 android:textColorHint="#8BC34A" />

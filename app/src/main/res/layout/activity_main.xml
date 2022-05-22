@@ -9,44 +9,63 @@
     android:background="@drawable/background_color"
     android:id="@+id/activity_main">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:srcCompat="@drawable/kindpng_5706188" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/SignInEmailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/signIn_email"
-        android:inputType="textEmailAddress"
-        android:textColor="#8BC34A"
-        android:textColorHint="#8BC34A" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/SignInPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/signIn_pw"
-        android:inputType="textPassword"
-        android:textColor="#8BC34A"
-        android:textColorHint="#8BC34A" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/kindpng_5706188" />
 
-    <Button
-        android:id="@+id/SignInButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/btn_green"
-        android:text="Sign In"
-        android:textColor="#FFC107" />
+            <EditText
+                android:id="@+id/SignInEmailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/signIn_email"
+                android:inputType="textEmailAddress"
+                android:textColor="#8BC34A"
+                android:textColorHint="#8BC34A" />
 
-    <Button
-        android:id="@+id/MoveToSignUpButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign Up" />
+            <EditText
+                android:id="@+id/SignInPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/signIn_pw"
+                android:inputType="textPassword"
+                android:textColor="#8BC34A"
+                android:textColorHint="#8BC34A" />
+
+            <Button
+                android:id="@+id/SignInButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/btn_green"
+                android:text="Sign In"
+                android:textColor="#FFC107" />
+
+            <Button
+                android:id="@+id/findPasswordButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFC107"
+                android:text="forgot password?"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/MoveToSignUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
