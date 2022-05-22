@@ -15,10 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.techtown.planner.AppConfig;
 import org.techtown.planner.R;
 import org.techtown.planner.domain.member.Member;
-import org.techtown.planner.domain.member.MemberService;
 
 public class SignUpActivity extends AppCompatActivity {
 //    AppConfig appConfig;
@@ -48,8 +46,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    private void SignUp(Member member) {
-        firebaseAuth.createUserWithEmailAndPassword(member.getEmail(), member.getPw()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void SignUp(Member member, String PasswordValue) {
+        firebaseAuth.createUserWithEmailAndPassword(member.getEmail(), PasswordValue).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
@@ -82,8 +80,8 @@ public class SignUpActivity extends AppCompatActivity {
             PasswordValue = Password.getText().toString();
             NicknameValue = Nickname.getText().toString();
             if (conditionChecker(EmailValue, PasswordValue, NicknameValue)) {
-                Member member = new Member(EmailValue, PasswordValue, NicknameValue);
-                SignUp(member);
+                Member member = new Member(EmailValue, NicknameValue);
+                SignUp(member, PasswordValue);
 //                if(memberService.SignUp(member)) {
 //                    Log.e("SignUpActivity", "회원가입 완료");
 //                } else {
