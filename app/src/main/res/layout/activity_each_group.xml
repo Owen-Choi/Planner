@@ -7,22 +7,22 @@
     tools:context=".service.activities.EachGroupActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textSize="50dp" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="50dp" />
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/text1"
-        android:background="@color/white"
-        android:text="여기에 그룹 스케줄표가 보여지는거지?"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text1"
+            android:background="@color/white"
+            android:text="여기에 그룹 스케줄표가 보여지는거지?"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
 </RelativeLayout>
