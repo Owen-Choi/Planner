@@ -19,8 +19,6 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -39,9 +37,8 @@ public class GroupFragment extends Fragment {
 
     private FirebaseUser curUser;
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
-    // 수하형파트. 필요 없는거면 위 import랑 같이 지워주세요~
-//    private FirebaseDatabase database;
-//    private DatabaseReference databaseReference;
+    private GroupAdapter adapter;
+
 
     public GroupFragment() {
     }
@@ -53,15 +50,8 @@ public class GroupFragment extends Fragment {
         ViewGroup rootView= (ViewGroup) inflater.inflate(R.layout.fragment_group , container, false);
 
         groupList = new ArrayList<>();
-
-        //String[] menuItems = {"number one", "number two", "number three", "number four"};
-        //일단 이 이름 뜨게하기
-        //그룹으로 바꿔서 리스트 띄우기
-
-        //databaseReference = database.getReference("Group");
-        //databaseReference.addListenerForSingleValueEvent(new );
-
         ListView listView= (ListView) rootView.findViewById(R.id.list);
+        adapter = new GroupAdapter();
 
 
         db.collection("Group")
@@ -72,27 +62,17 @@ public class GroupFragment extends Fragment {
                                                if (task.isSuccessful()) {
                                                    for (QueryDocumentSnapshot document : task.getResult()) {
                                                        Log.d(TAG, document.getId() + " => " + document.getData());
-                                                       groupList.add(document.toObject(GroupContent.class));
-                                                       System.out.println(document + "!!!!!!" +groupList);
-                                                       System.out.println("for문 1 " + document.getData().get("gname"));
+                                                       adapter.addItem((String) document.getData().get("gname"));
+                                                       //groupList.add(document.toObject(GroupContent.class));
+                                                       //System.out.println(document + "!!!!!!" +groupList);
+                                                       //System.out.println("for문 1 " + document.getData().get("gname"));
                                                    }
-                                                   System.out.println("전체 " + groupList);
-                                                   ArrayAdapter<GroupContent> adapter= new ArrayAdapter<GroupContent>(getActivity(), android.R.layout.simple_list_item_1, groupList)
-                                                   {
-                                                       @Override
-                                                       public View getView(int position, View convertView, ViewGroup parent)
-                                                       {
-                                                           View view = super.getView(position, convertView, parent);
-                                                           TextView tv = (TextView) view.findViewById(android.R.id.text1);
-                                                           tv.setTextColor(Color.BLACK); //?? 리스트뷰 색깔
-                                                           return view;
-                                                       }
-                                                   };
-                                                   listView.setAdapter(adapter);
+                                                   //System.out.println("전체 " + groupList);
                                                }
                                            }
                                        });
 
+        //
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -120,3 +100,16 @@ public class GroupFragment extends Fragment {
 
     }
 }
+
+//    ArrayAdapter<GroupContent> adapter= new ArrayAdapter<GroupContent>(getActivity(), android.R.layout.simple_list_item_1, groupList)
+//    {
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent)
+//        {
+//            View view = super.getView(position, convertView, parent);
+//            TextView tv = (TextView) view.findViewById(android.R.id.text1);
+//            tv.setTextColor(Color.BLACK); //?? 리스트뷰 색깔
+//            return view;
+//        }
+//    };
+//                                                   listView.setAdapter(adapter);

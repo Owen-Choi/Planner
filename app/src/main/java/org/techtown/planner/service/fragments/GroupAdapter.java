@@ -14,38 +14,64 @@ import java.util.ArrayList;
 
 public class GroupAdapter extends BaseAdapter {
 
-    Context mContext = null;
-    LayoutInflater mLayoutInflater = null;
-    ArrayList<GroupContent> sample;
+    private TextView gnameTextView;
 
-    public GroupAdapter(Context context, ArrayList<GroupContent> data) {
-        mContext = context;
-        sample = data;
-        mLayoutInflater = LayoutInflater.from(mContext);
+
+    private ArrayList<GroupContent> groupList = new ArrayList<>();
+
+    public GroupAdapter() {
     }
 
     @Override
-    public int getCount() {
-        return sample.size();
+    public int getCount()
+    {
+        return groupList.size();
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int position)
+    {
         return position;
     }
 
     @Override
-    public GroupContent getItem(int position) {
-        return sample.get(position);
+    public GroupContent getItem(int position)
+    {
+        return groupList.get(position);
+    }
+
+    public void addItem(String gname)
+    {
+        GroupContent item = new GroupContent();
+
+        item.setName(gname);
+
+        groupList.add(item);
     }
 
     @Override
-    public View getView(int position, View converView, ViewGroup parent) {
-        View view = mLayoutInflater.inflate(R.layout.fragment_group, null);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos = position;
+        final Context context = parent.getContext();
 
-        TextView grade = (TextView)view.findViewById(R.id.textview);
-        //grade.setText(sample.get(position).getGrade());
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_group, parent, false);
+        }
 
-        return view;
+        gnameTextView = (TextView) convertView.findViewById(R.id.text1);
+
+        GroupContent groupContent = groupList.get(position);
+
+        gnameTextView.setText(groupContent.getName());
+
+        return convertView;
+
+//        View view = LayoutInflater.inflate(R.layout.fragment_group, null);
+//
+//        TextView grade = (TextView)view.findViewById(R.id.textview);
+//        //grade.setText(sample.get(position).getGrade());
     }
+
+
 }
