@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -64,9 +66,27 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    // menu 관련 함수들
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.setting_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        StartActivity(SettingsActivity.class);
+        return super.onOptionsItemSelected(item);
+    }
+
     // 처음 fragment 설정하는 함수
     private void Init_Frag_Screen() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_layout,ScheduleFragment).commitAllowingStateLoss();
+    }
+
+    private void StartActivity(Class c) {
+        Intent intent = new Intent(this, c);
+        startActivity(intent);
     }
 }

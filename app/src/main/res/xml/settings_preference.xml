@@ -1,0 +1,35 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="회원"/>
+    <Preference
+        android:title="회원 정보"
+        android:key="memberInfo"/>
+    <Preference
+        android:title="비밀번호 변경"
+        android:key="change_pw"/>
+    <Preference
+        android:title="회원 탈퇴"
+        android:key="withdrawal"/>
+    <Preference
+        android:title="로그아웃"
+        android:key="sign_out"/>
+    <PreferenceCategory/>
+
+    <PreferenceCategory
+        android:title="About">
+    <Preference
+        android:key="About_us"
+        android:title="About Us"
+        android:summary="https://github.com/Owen-Choi/Planner"/>
+    <Preference
+        android:key="License"
+        android:title="Licenses"
+        android:summary="https://github.com/tlaabs/TimetableView"/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
+
+
