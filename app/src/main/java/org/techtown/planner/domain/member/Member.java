@@ -1,6 +1,8 @@
 package org.techtown.planner.domain.member;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
     private String Email;
     private String Nickname;
     private String realName;
@@ -13,6 +15,9 @@ public class Member {
         this.realName = realName;
         this.gender = gender;
         this.birthDate = birthDate;
+    }
+
+    public Member() {
     }
 
     public String getEmail() {

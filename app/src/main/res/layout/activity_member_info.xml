@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/id_card" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFC107"
+                android:text="Email"
+                android:textColor="#473E3E"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/EmailInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8BC34A"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFC107"
+                android:text="NickName"
+                android:textColor="#473E3E"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/NicknameInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8BC34A"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFC107"
+                android:text="Name"
+                android:textColor="#473E3E"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/NameInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8BC34A"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFC107"
+                android:text="BirthDate"
+                android:textColor="#473E3E"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/BirthDateInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8BC34A"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFC107"
+                android:text="Gender"
+                android:textColor="#473E3E"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/GenderInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8BC34A"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
