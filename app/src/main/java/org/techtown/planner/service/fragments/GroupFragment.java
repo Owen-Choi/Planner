@@ -50,8 +50,13 @@ public class GroupFragment extends Fragment {
         ViewGroup rootView= (ViewGroup) inflater.inflate(R.layout.fragment_group , container, false);
 
         groupList = new ArrayList<>();
+
         ListView listView= (ListView) rootView.findViewById(R.id.list);
+        listView.setAdapter(adapter);
         adapter = new GroupAdapter();
+
+//        adapter.addItem("group1");
+//        adapter.addItem("group222");
 
 
         db.collection("Group")
@@ -62,7 +67,10 @@ public class GroupFragment extends Fragment {
                                                if (task.isSuccessful()) {
                                                    for (QueryDocumentSnapshot document : task.getResult()) {
                                                        Log.d(TAG, document.getId() + " => " + document.getData());
-                                                       adapter.addItem((String) document.getData().get("gname"));
+                                                       adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
+                                                       System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
+
+                                                       //System.out.println(document.getData().get("gname"));
                                                        //groupList.add(document.toObject(GroupContent.class));
                                                        //System.out.println(document + "!!!!!!" +groupList);
                                                        //System.out.println("for문 1 " + document.getData().get("gname"));
@@ -71,6 +79,8 @@ public class GroupFragment extends Fragment {
                                                }
                                            }
                                        });
+        adapter.notifyDataSetChanged();
+
 
         //
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -81,22 +91,13 @@ public class GroupFragment extends Fragment {
 
             private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
                 Intent intent= new Intent(getContext(),eachGroupFragmentClass);
-                intent.putExtra("i",i+1);
-                //intent.putExtra("menu",menuItems[i]);
+                intent.putExtra("i",i+1+"번 그룹");
                 startActivity(intent);
             }
         });
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                Intent intent = new Intent(getActivity(), EachGroupFragment.class); //현재 화면 -> 넘어갈 화면
-//                intent.putExtra("name", (Parcelable) group.get(position));
-//                startActivity(intent);
-//            }
-//        });
         return rootView;
+
 
     }
 }
@@ -113,3 +114,15 @@ public class GroupFragment extends Fragment {
 //        }
 //    };
 //                                                   listView.setAdapter(adapter);
+
+
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Intent intent = new Intent(getActivity(), EachGroupFragment.class); //현재 화면 -> 넘어갈 화면
+//                intent.putExtra("name", (Parcelable) group.get(position));
+//                startActivity(intent);
+//            }
+//        });

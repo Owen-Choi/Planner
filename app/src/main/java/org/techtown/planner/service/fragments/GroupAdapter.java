@@ -15,12 +15,15 @@ import java.util.ArrayList;
 public class GroupAdapter extends BaseAdapter {
 
     private TextView gnameTextView;
+    private TextView usernumTextView;
+    //아마 인원수나 비공개 여부인지 정도?
 
+    private ArrayList<GroupContent> groupList = new ArrayList<GroupContent>();
 
-    private ArrayList<GroupContent> groupList = new ArrayList<>();
+//    int i = GroupContent.getUserList().size();
+//    ArrayList a = GroupContent.getUserList();
 
-    public GroupAdapter() {
-    }
+    public GroupAdapter() {  }
 
     @Override
     public int getCount()
@@ -35,16 +38,17 @@ public class GroupAdapter extends BaseAdapter {
     }
 
     @Override
-    public GroupContent getItem(int position)
+    public Object getItem(int position)
     {
         return groupList.get(position);
     }
 
-    public void addItem(String gname)
+    public void addItem(String gname, ArrayList userList)
     {
         GroupContent item = new GroupContent();
 
         item.setName(gname);
+        item.setUserList(userList);
 
         groupList.add(item);
     }
@@ -60,18 +64,14 @@ public class GroupAdapter extends BaseAdapter {
         }
 
         gnameTextView = (TextView) convertView.findViewById(R.id.text1);
+        usernumTextView = (TextView) convertView.findViewById(R.id.text2);
 
         GroupContent groupContent = groupList.get(position);
 
         gnameTextView.setText(groupContent.getName());
+        usernumTextView.setText("인원 수 : " + Integer.toString(groupContent.getUserList().size())); //유저리스트의 사이즈를 text2에 씀
 
         return convertView;
 
-//        View view = LayoutInflater.inflate(R.layout.fragment_group, null);
-//
-//        TextView grade = (TextView)view.findViewById(R.id.textview);
-//        //grade.setText(sample.get(position).getGrade());
     }
-
-
 }

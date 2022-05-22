@@ -5,23 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".service.activities.EachGroupActivity"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
-    android:id="@+id/text1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="50dp"
-    android:textColor="@color/black"
-    android:background="@color/white" />
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="a"
-        android:textSize="50dp" />
+        android:text=""
+        android:textSize="20dp" />
 
 </LinearLayout>
