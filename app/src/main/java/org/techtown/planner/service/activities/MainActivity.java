@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         PasswordInput = findViewById(R.id.SignInPasswordEditText);
         findViewById(R.id.SignInButton).setOnClickListener(SignInClickListener);
         findViewById(R.id.MoveToSignUpButton).setOnClickListener(MoveToSignUpClickListener);
+        findViewById(R.id.findPasswordButton).setOnClickListener(MoveToFindPasswordClickListener);
     }
 
     private void StartActivity(Class c) {
@@ -98,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+    View.OnClickListener MoveToFindPasswordClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            StartActivity(Password_Init_Activity.class);
+        }
+    };
 
     View.OnClickListener MoveToSignUpClickListener = new View.OnClickListener() {
         @Override
