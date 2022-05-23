@@ -39,7 +39,6 @@ public class GroupFragment extends Fragment {
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private GroupAdapter adapter;
 
-
     public GroupFragment() {
     }
 
@@ -69,7 +68,6 @@ public class GroupFragment extends Fragment {
                                                        Log.d(TAG, document.getId() + " => " + document.getData());
                                                        adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
                                                        System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
-
                                                        //System.out.println(document.getData().get("gname"));
                                                        //groupList.add(document.toObject(GroupContent.class));
                                                        //System.out.println(document + "!!!!!!" +groupList);
@@ -91,7 +89,7 @@ public class GroupFragment extends Fragment {
 
             private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
                 Intent intent= new Intent(getContext(),eachGroupFragmentClass);
-                intent.putExtra("i",i+1+"번 그룹");
+                intent.putExtra("i",i+1);
                 startActivity(intent);
             }
         });
