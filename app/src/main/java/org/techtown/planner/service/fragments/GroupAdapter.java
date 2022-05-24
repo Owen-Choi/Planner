@@ -43,14 +43,9 @@ public class GroupAdapter extends BaseAdapter {
         return groupList.get(position);
     }
 
-    public void addItem(String gname, ArrayList userList)
+    public void addItem(GroupContent GroupInfo)
     {
-        GroupContent item = new GroupContent();
-
-        item.setGname(gname);
-        item.setUserList(userList);
-
-        groupList.add(item);
+        groupList.add(GroupInfo);
     }
 
     @Override

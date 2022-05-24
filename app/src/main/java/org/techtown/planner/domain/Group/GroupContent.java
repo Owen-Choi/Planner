@@ -4,9 +4,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GroupContent {
+public class GroupContent implements Serializable {
     private String gname;
     private String masterID;
     private String GroupPassword;

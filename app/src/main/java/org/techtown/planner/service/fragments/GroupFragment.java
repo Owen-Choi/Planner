@@ -27,7 +27,9 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -45,7 +47,7 @@ public class GroupFragment extends Fragment {
     String TAG = "GroupFragment";
     private ArrayList<GroupContent> groupList;
 
-    private FirebaseUser curUser;
+    private FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private GroupAdapter adapter;
 
@@ -69,32 +71,27 @@ public class GroupFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
-        db.collection("Group")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                           @Override
-                                           public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                               if (task.isSuccessful()) {
-                                                   for (QueryDocumentSnapshot document : task.getResult()) {
-                                                       Log.d(TAG, document.getId() + " => " + document.getData());
-                                                       adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
-                                                       System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
-                                                       //System.out.println(document.getData().get("gname"));
-                                                       //groupList.add(document.toObject(GroupContent.class));
-                                                       //System.out.println(document + "!!!!!!" +groupList);
-                                                       //System.out.println("for문 1 " + document.getData().get("gname"));
-                                                   }
-                                                   //System.out.println("전체 " + groupList);
-                                               }
-                                           }
-                                       });
+        // 그룹 데이터베이스 변경됨. Group -> 방장 Uid -> My_Group(얘를 굳이 한번 더 넣은 이유는 collection은 삭제할 수 없지만
+        // document는 삭제할 수 있기 때문에) -> GroupName 의 구조임.
+        // 그래서 My_Group으로 CollectionGroup 쿼리 날려서 그룹 정보 다 가져오는 원리.
+        db.collectionGroup("My_Group").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        GroupContent tempContent = document.toObject(GroupContent.class);
+                        adapter.addItem(tempContent);
+                    }
+                }
+            }
+        });
         adapter.notifyDataSetChanged();
 
 
         //
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
                 //그룹 들어가기 전 pw 입력받기
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
 
@@ -108,15 +105,15 @@ public class GroupFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String g_pw = pw.getText().toString();
-                        //TODO: '비밀번호가 일치한다면' 의 조건 작성
-                        StartActivity(EachGroupActivity.class,i);
+                        find_and_update_db((GroupContent) adapter.getItem(index), g_pw, index);
+//                        StartActivity(EachGroupActivity.class,index);
                     }
                 });
 
-                alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        StartToast("취소되었습니다.");
                     }
                 });
 
@@ -172,6 +169,77 @@ public class GroupFragment extends Fragment {
         android.app.AlertDialog dialog = builder.create();
         dialog.setCanceledOnTouchOutside(true);
         dialog.show();
+    }
+
+    private void StartToast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    // 패스워드 체킹, 데이터베이스 검색 및 업데이트, 그룹 참가  기능을 모두 수행하는 함수, 철웅 추가
+    private void find_and_update_db(GroupContent GroupContentFromListView, String Password, int index) {
+        // 좀 비효율적이지만 달리 다른 방법이 떠오르지 않음.
+        // 컬렉션 그룹 하위의 모든 데이터들을 일일이 찾는 원리.
+        db.collectionGroup("My_Group").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for (QueryDocumentSnapshot  document : task.getResult()) {
+                        GroupContent tempContent = document.toObject(GroupContent.class);
+                        // 방 이름이랑 방장 ID가 같다면 그룹을 찾은 것으로 간주.
+                        // 따라서 방장은 같은 이름의 방을 2개 이상 만들어서는 안된다.
+                        if(tempContent.getGname().equals(GroupContentFromListView.getGname())
+                        && tempContent.getMasterID().equals(GroupContentFromListView.getMasterID())) {
+                            // 찾았으면 비밀번호 체킹 후 본인 추가된 데이터로 업데이트, 그 후에 화면 전환.
+                            if(PasswordChecker(tempContent, Password)) {
+                                // 비밀번호 일치, DB 업데이트 후 화면 전환
+                                ArrayList<String> ForChecking = tempContent.getUserList();
+                                // 이미 가입한 그룹인지 확인한다.
+                                if(already_joined(ForChecking)) {
+                                    // 이미 가입한 그룹이다.
+                                    // 이 경우 별도의 데이터베이스 업데이트 없이 바로 그룹 액티비티 호출하면 되겠다.
+                                    Log.e(TAG, "이미 가입한 그룹, 데이터베이스 업데이트 생략");
+                                    StartActivity(EachGroupActivity.class,index);
+                                    return;
+                                }
+                                // 생각해보니 가입시스템이 아니네?
+                                // 그래도 혹시 필요할 수 있으니 주석처리 해두겠음.
+                                ArrayList<String> UpdatedList = ForChecking;
+                                GroupContent newGroupContent =
+                                        new GroupContent(
+                                                GroupContentFromListView.getGname(),
+                                                GroupContentFromListView.getMasterID(),
+                                                GroupContentFromListView.getGroupPassword(),
+                                                UpdatedList,
+                                                GroupContentFromListView.getMaxNum());
+                                UpdatedList.add(curUser.getUid());
+                                DocumentReference reference = document.getReference();
+                                reference.set(newGroupContent);
+                                StartActivity(EachGroupActivity.class,index);
+                            } else {
+                                // 비밀번호 불일치
+                                StartToast("비밀번호가 틀렸습니다.");
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private boolean already_joined(ArrayList<String> userList) {
+        String myUid = curUser.getUid();
+        for (String memberUid : userList) {
+            if(myUid.equals(memberUid))
+                // 이미 가입한 그룹.
+                return true;
+        }
+        return false;
+    }
+
+    private boolean PasswordChecker(GroupContent fromDB, String password) {
+        if(!fromDB.getGroupPassword().equals(password))
+            return false;
+        return true;
     }
 }
 
