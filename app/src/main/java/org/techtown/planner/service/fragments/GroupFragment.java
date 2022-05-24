@@ -1,10 +1,13 @@
 package org.techtown.planner.service.fragments;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,10 +43,8 @@ public class GroupFragment extends Fragment {
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private GroupAdapter adapter;
 
-
     public GroupFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +71,6 @@ public class GroupFragment extends Fragment {
                                                        Log.d(TAG, document.getId() + " => " + document.getData());
                                                        adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
                                                        System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
-
                                                        //System.out.println(document.getData().get("gname"));
                                                        //groupList.add(document.toObject(GroupContent.class));
                                                        //System.out.println(document + "!!!!!!" +groupList);
@@ -86,12 +87,38 @@ public class GroupFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                StartActivity(EachGroupActivity.class,i);
+                //그룹 들어가기 전 pw 입력받기
+                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+
+                alert.setTitle("Input Group pw");
+                alert.setMessage("ex.1234");
+
+                final EditText pw = new EditText(getContext());
+                alert.setView(pw);
+
+                alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String g_pw = pw.getText().toString();
+                        //TODO: '비밀번호가 일치한다면' 의 조건 작성
+                        StartActivity(EachGroupActivity.class,i);
+                    }
+                });
+
+                alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                alert.show();
+
             }
 
             private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
                 Intent intent= new Intent(getContext(),eachGroupFragmentClass);
-                intent.putExtra("i",i+1+"번 그룹");
+                intent.putExtra("i",i+1);
                 startActivity(intent);
             }
         });

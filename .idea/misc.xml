@@ -38,6 +38,11 @@
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/menu/setting_menu.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/xml/root_preferences.xml" value="0.264" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/xml/settings_preference.xml" value="0.2" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.1" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_group_add.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/content_group.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_home.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/menu/bottom_menu.xml" value="0.20625" />
       </map>
     </option>
   </component>

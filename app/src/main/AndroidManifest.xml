@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planner">
         <activity
+            android:name=".service.activities.GroupAddActivity"
+            android:exported="true" />
+        <activity
             android:name=".service.activities.MemberInfoActivity"
             android:exported="true" />
         <activity
@@ -23,7 +26,7 @@
             android:exported="true" />
         <activity
             android:name=".service.activities.FixActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".service.activities.GroupScheduleSample"
             android:exported="true" />

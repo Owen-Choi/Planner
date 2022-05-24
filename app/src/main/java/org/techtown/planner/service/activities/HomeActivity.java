@@ -1,7 +1,6 @@
 package org.techtown.planner.service.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -9,29 +8,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.github.tlaabs.timetableview.Schedule;
-import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.techtown.planner.R;
+import org.techtown.planner.service.fragments.AddFragment;
 import org.techtown.planner.service.fragments.GroupFragment;
 import org.techtown.planner.service.fragments.HomeFragment;
-
-import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     // fragments
     Fragment ScheduleFragment;
     Fragment GroupFragment;
-
-    public static final int REQUEST_ADD = 1;
-    public static final int REQUEST_EDIT = 2;
+    Fragment AddFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         // Fragment 초기화
         ScheduleFragment = new HomeFragment();
         GroupFragment = new GroupFragment();
+        AddFragment = new AddFragment();
 
         // 최초 fragment 화면은 schedule fragment로 띄워준다.
         Init_Frag_Screen();
@@ -57,8 +49,9 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_layout,GroupFragment).commitAllowingStateLoss();
                         return true;
-                    case R.id.menu_myprofile:
-                        Log.e("temp", "프로필 창 띄우기");
+                    case R.id.menu_plus:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_layout, AddFragment).commitAllowingStateLoss();
                         return true;
                 }
                 return false;
