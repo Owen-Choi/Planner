@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     // fragments
     Fragment ScheduleFragment;
     Fragment GroupFragment;
-    Fragment AddFragment;
+//    Fragment AddFragment;
     Fragment MyGroupFragment;
 
     @Override
@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         // Fragment 초기화
         ScheduleFragment = new HomeFragment();
         GroupFragment = new GroupFragment();
-        AddFragment = new AddFragment();
+//        AddFragment = new AddFragment();
         MyGroupFragment = new MyGroupFragment();
 
         // 최초 fragment 화면은 schedule fragment로 띄워준다.
@@ -52,10 +52,10 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_layout,GroupFragment).commitAllowingStateLoss();
                         return true;
-                    case R.id.menu_plus:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.main_layout, AddFragment).commitAllowingStateLoss();
-                        return true;
+//                    case R.id.menu_plus:
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.main_layout, AddFragment).commitAllowingStateLoss();
+//                        return true;
                     case R.id.menu_my:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_layout, MyGroupFragment).commitAllowingStateLoss();

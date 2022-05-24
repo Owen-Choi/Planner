@@ -133,22 +133,6 @@ public class GroupFragment extends Fragment {
 
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.my_group, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.list:
-                Toast.makeText(getActivity(), "내 그룹", Toast.LENGTH_SHORT).show();
-
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
 
 //    ArrayAdapter<GroupContent> adapter= new ArrayAdapter<GroupContent>(getActivity(), android.R.layout.simple_list_item_1, groupList)
