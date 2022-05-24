@@ -60,25 +60,25 @@ public class MyGroupFragment extends Fragment {
 //        adapter.addItem("group1");
 //        adapter.addItem("group222");
 
-        db.collection("Group")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                           @Override
-                                           public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                               if (task.isSuccessful()) {
-                                                   for (QueryDocumentSnapshot document : task.getResult()) {
-                                                       Log.d(TAG, document.getId() + " => " + document.getData());
-                                                       adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
-                                                       System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
-                                                       //System.out.println(document.getData().get("gname"));
-                                                       //groupList.add(document.toObject(GroupContent.class));
-                                                       //System.out.println(document + "!!!!!!" +groupList);
-                                                       //System.out.println("for문 1 " + document.getData().get("gname"));
-                                                   }
-                                                   //System.out.println("전체 " + groupList);
-                                               }
-                                           }
-                                       });
+//        db.collection("Group")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                           @Override
+//                                           public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                               if (task.isSuccessful()) {
+//                                                   for (QueryDocumentSnapshot document : task.getResult()) {
+//                                                       Log.d(TAG, document.getId() + " => " + document.getData());
+//                                                       adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
+//                                                       System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
+//                                                       //System.out.println(document.getData().get("gname"));
+//                                                       //groupList.add(document.toObject(GroupContent.class));
+//                                                       //System.out.println(document + "!!!!!!" +groupList);
+//                                                       //System.out.println("for문 1 " + document.getData().get("gname"));
+//                                                   }
+//                                                   //System.out.println("전체 " + groupList);
+//                                               }
+//                                           }
+//                                       });
         adapter.notifyDataSetChanged();
 
 
