@@ -16,13 +16,15 @@ import org.techtown.planner.R;
 import org.techtown.planner.service.fragments.AddFragment;
 import org.techtown.planner.service.fragments.GroupFragment;
 import org.techtown.planner.service.fragments.HomeFragment;
+import org.techtown.planner.service.fragments.MyGroupFragment;
 
 public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     // fragments
     Fragment ScheduleFragment;
     Fragment GroupFragment;
-    Fragment AddFragment;
+//    Fragment AddFragment;
+    Fragment MyGroupFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,8 @@ public class HomeActivity extends AppCompatActivity {
         // Fragment 초기화
         ScheduleFragment = new HomeFragment();
         GroupFragment = new GroupFragment();
-        AddFragment = new AddFragment();
+//        AddFragment = new AddFragment();
+        MyGroupFragment = new MyGroupFragment();
 
         // 최초 fragment 화면은 schedule fragment로 띄워준다.
         Init_Frag_Screen();
@@ -49,9 +52,13 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_layout,GroupFragment).commitAllowingStateLoss();
                         return true;
-                    case R.id.menu_plus:
+//                    case R.id.menu_plus:
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.main_layout, AddFragment).commitAllowingStateLoss();
+//                        return true;
+                    case R.id.menu_my:
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.main_layout, AddFragment).commitAllowingStateLoss();
+                                .replace(R.id.main_layout, MyGroupFragment).commitAllowingStateLoss();
                         return true;
                 }
                 return false;

@@ -12,9 +12,17 @@
         android:icon="@drawable/ic_group"
         android:title="Group"/>
 
+<!--    floating button 으로 할 예정-->
+<!--    <item-->
+<!--        android:id="@+id/menu_plus"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_baseline_add_24"-->
+<!--        android:title="Add"/>-->
+
     <item
-        android:id="@+id/menu_plus"
+        android:id="@+id/menu_my"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_add_24"
-        android:title="Add"/>
+        android:icon="@drawable/ic_baseline_sentiment_very_satisfied_24"
+        android:title="My Group"/>
+
 </menu>
