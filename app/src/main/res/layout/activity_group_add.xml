@@ -9,4 +9,42 @@
     android:background="@drawable/background_color">
 
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="328dp"
+        app:srcCompat="@drawable/meeting" />
+
+    <EditText
+        android:id="@+id/GroupNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="그룹명을 입력해주세요"
+        android:inputType="textPersonName"
+        android:textColorHint="#8BC34A" />
+
+    <EditText
+        android:id="@+id/MaxPeopleNumEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="최대 인원수를 입력해주세요"
+        android:inputType="textPersonName"
+        android:textColorHint="#8BC34A" />
+
+    <EditText
+        android:id="@+id/GroupPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="비밀번호를 입력주세요"
+        android:inputType="textPersonName"
+        android:textColorHint="#8BC34A" />
+
+    <Button
+        android:id="@+id/GroupCreateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="생성" />
 </LinearLayout>

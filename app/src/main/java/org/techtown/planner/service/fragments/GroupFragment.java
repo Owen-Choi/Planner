@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -34,6 +35,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.techtown.planner.R;
 import org.techtown.planner.domain.Group.GroupContent;
 import org.techtown.planner.service.activities.EachGroupActivity;
+import org.techtown.planner.service.activities.GroupAddActivity;
 
 import java.util.ArrayList;
 
@@ -46,6 +48,9 @@ public class GroupFragment extends Fragment {
     private FirebaseUser curUser;
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private GroupAdapter adapter;
+
+    // 그룹 추가 floating button, 철웅 추가
+    FloatingActionButton add;
 
     public GroupFragment() {
     }
@@ -61,8 +66,6 @@ public class GroupFragment extends Fragment {
         listView.setAdapter(adapter);
         adapter = new GroupAdapter();
 
-//        adapter.addItem("group1");
-//        adapter.addItem("group222");
 
         setHasOptionsMenu(true);
 
@@ -121,10 +124,14 @@ public class GroupFragment extends Fragment {
 
             }
 
-            private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
-                Intent intent= new Intent(getContext(),eachGroupFragmentClass);
-                intent.putExtra("i",i+1);
-                startActivity(intent);
+        });
+
+        // floating button 관련, 철웅 추가
+        add = (FloatingActionButton)rootView.findViewById(R.id.add_group_floating_button);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogManager();
             }
         });
 
@@ -133,29 +140,38 @@ public class GroupFragment extends Fragment {
 
     }
 
+    private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
+        Intent intent= new Intent(getContext(),eachGroupFragmentClass);
+        intent.putExtra("i",i+1);
+        startActivity(intent);
+    }
+
+    // 철웅 추가, 오버로딩?
+    private void StartActivity(Class c) {
+        Intent intent = new Intent(getContext(), c);
+        startActivity(intent);
+    }
+
+    // 그룹 생성 관련 dialog, 철웅 추가
+    private void DialogManager() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity())
+                .setTitle("Timetable Clear")
+                .setMessage("새 그룹을 만드시겠습니까?")
+                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        StartActivity(GroupAddActivity.class);
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getActivity(), "취소하셨습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        android.app.AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+    }
 }
 
-//    ArrayAdapter<GroupContent> adapter= new ArrayAdapter<GroupContent>(getActivity(), android.R.layout.simple_list_item_1, groupList)
-//    {
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent)
-//        {
-//            View view = super.getView(position, convertView, parent);
-//            TextView tv = (TextView) view.findViewById(android.R.id.text1);
-//            tv.setTextColor(Color.BLACK); //?? 리스트뷰 색깔
-//            return view;
-//        }
-//    };
-//                                                   listView.setAdapter(adapter);
-
-
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                Intent intent = new Intent(getActivity(), EachGroupFragment.class); //현재 화면 -> 넘어갈 화면
-//                intent.putExtra("name", (Parcelable) group.get(position));
-//                startActivity(intent);
-//            }
-//        });

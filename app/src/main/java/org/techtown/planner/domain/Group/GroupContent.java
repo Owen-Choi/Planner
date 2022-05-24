@@ -9,19 +9,18 @@ import java.util.ArrayList;
 public class GroupContent {
     private String gname;
     private String masterID;
-    private ArrayList<Integer> userList;
+    private String GroupPassword;
+    private ArrayList<String> userList;
+    private int MaxNum;
 
     public GroupContent(){   }
 
-    public GroupContent(String gname)
-    {
-        this.gname = gname;
-    }
-
-    public GroupContent(String gname, String masterID, ArrayList<Integer> userList) {
+    public GroupContent(String gname, String masterID, String groupPassword, ArrayList<String> userList, int maxNum) {
         this.gname = gname;
         this.masterID = masterID;
+        GroupPassword = groupPassword;
         this.userList = userList;
+        MaxNum = maxNum;
     }
 
     public String getGname() {
@@ -40,11 +39,27 @@ public class GroupContent {
         this.masterID = masterID;
     }
 
-    public ArrayList<Integer> getUserList() {
+    public String getGroupPassword() {
+        return GroupPassword;
+    }
+
+    public void setGroupPassword(String groupPassword) {
+        GroupPassword = groupPassword;
+    }
+
+    public ArrayList<String> getUserList() {
         return userList;
     }
 
-    public void setUserList(ArrayList<Integer> userList) {
+    public void setUserList(ArrayList<String> userList) {
         this.userList = userList;
+    }
+
+    public int getMaxNum() {
+        return MaxNum;
+    }
+
+    public void setMaxNum(int maxNum) {
+        MaxNum = maxNum;
     }
 }
