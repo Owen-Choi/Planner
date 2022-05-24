@@ -16,6 +16,7 @@ import org.techtown.planner.R;
 import org.techtown.planner.service.fragments.AddFragment;
 import org.techtown.planner.service.fragments.GroupFragment;
 import org.techtown.planner.service.fragments.HomeFragment;
+import org.techtown.planner.service.fragments.MyGroupFragment;
 
 public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     Fragment ScheduleFragment;
     Fragment GroupFragment;
     Fragment AddFragment;
+    Fragment MyGroupFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         ScheduleFragment = new HomeFragment();
         GroupFragment = new GroupFragment();
         AddFragment = new AddFragment();
+        MyGroupFragment = new MyGroupFragment();
 
         // 최초 fragment 화면은 schedule fragment로 띄워준다.
         Init_Frag_Screen();
@@ -52,6 +55,10 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.menu_plus:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.main_layout, AddFragment).commitAllowingStateLoss();
+                        return true;
+                    case R.id.menu_my:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.main_layout, MyGroupFragment).commitAllowingStateLoss();
                         return true;
                 }
                 return false;
