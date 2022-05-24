@@ -18,9 +18,7 @@
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_kitty.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_profile.xml" value="0.2515625" />
-        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.2115036231884058" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_edit.xml" value="0.1743659420289855" />
-        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_group_add.xml" value="0.19157608695652173" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_home.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_main.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_member_info.xml" value="0.264" />
@@ -30,7 +28,6 @@
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_time_picker.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_timetable.xml" value="0.1897644927536232" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/edit_appbar.xml" value="0.1897644927536232" />
-        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_add.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_group.xml" value="0.1897644927536232" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/only_time_table.xml" value="0.1897644927536232" />
@@ -41,6 +38,11 @@
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/menu/setting_menu.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/xml/root_preferences.xml" value="0.264" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/xml/settings_preference.xml" value="0.2" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.1" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_group_add.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/content_group.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_home.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/menu/bottom_menu.xml" value="0.20625" />
       </map>
     </option>
   </component>
