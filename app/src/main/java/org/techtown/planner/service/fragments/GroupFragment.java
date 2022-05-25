@@ -73,7 +73,9 @@ public class GroupFragment extends Fragment {
                 if(task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         GroupContent tempContent = document.toObject(GroupContent.class);
-                        adapter.addItem(tempContent);
+                        // 가입하지 않은 그룹만 보여준다.
+                        if(!already_joined(tempContent.getUserList()))
+                            adapter.addItem(tempContent);
                     }
                 }
             }
@@ -89,7 +91,7 @@ public class GroupFragment extends Fragment {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
 
                 alert.setTitle("Input Group pw");
-                alert.setMessage("ex.1234");
+                alert.setMessage("패스워드를 입력해주세요.");
 
                 final EditText pw = new EditText(getContext());
                 alert.setView(pw);
@@ -136,9 +138,11 @@ public class GroupFragment extends Fragment {
         startActivity(intent);
     }
 
-    // 철웅 추가, 오버로딩?
     private void StartActivity(Class c) {
         Intent intent = new Intent(getContext(), c);
+        // CLEAR_TOP이 없으면 기존 액티비티 스택이 제거가 되지 않아서, DB에서 일정을 가져오서 시간표를 표시하는
+        // OnCreateView가 다시 호출되지 않는다.그렇다고 onResume()을 쓰면 시간표를 누를때마다 색이 변함.
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -237,8 +241,10 @@ public class GroupFragment extends Fragment {
     }
 
     private boolean PasswordChecker(GroupContent fromDB, String password) {
-        if(!fromDB.getGroupPassword().equals(password))
+        if(!fromDB.getGroupPassword().equals(password)) {
+            StartToast("그룹이 꽉 찼습니다.");
             return false;
+        }
         return true;
     }
 }

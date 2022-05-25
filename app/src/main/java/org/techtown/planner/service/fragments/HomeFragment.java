@@ -88,11 +88,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        showSchedule();
-        super.onResume();
-    }
 
     // floating button onClickListener 설정
     View.OnClickListener onClickListener = new View.OnClickListener() {
