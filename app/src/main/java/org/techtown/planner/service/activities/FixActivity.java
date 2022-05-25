@@ -161,7 +161,10 @@ public class FixActivity extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()){
             case R.id.fixbtn:
                 //TODO: 여기서 조건문으로 확인해서 막기 (가능한 시간대로만 설정할 수 있도록)
-                setResult(0);
+                // 오,,, 여기서 하는 줄 모르고 EachGroupActivity에서 처리했어 선아
+                Intent i = new Intent();
+                i.putExtra("schedule", schedule);
+                setResult(RESULT_OK_ADD, i);
                 finish();
 //                if(mode == TimetableActivity.REQUEST_ADD){
 //                    inputDataProcessing();
@@ -237,6 +240,7 @@ public class FixActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     //TODO: InsertSchedule 은 아직 (조건문을 완성 시키면 실행
+    // 이 친구도 EachGroupActivity에서 할게.
     private void InsertSchedule(ScheduleInfo scheduleInfo) {
         // DB 구조는
         db.collection("Schedule").document(user.getUid())
