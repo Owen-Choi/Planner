@@ -31,7 +31,8 @@ public class MemberInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_info);
+//        setContentView(R.layout.activity_member_info);
+        setContentView(R.layout.designed_member_info);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
@@ -43,13 +44,13 @@ public class MemberInfoActivity extends AppCompatActivity {
                 if(member != null) {
                     Email = (TextView)findViewById(R.id.EmailInfo);
                     Nickname = (TextView)findViewById(R.id.NicknameInfo);
-                    Name = (TextView)findViewById(R.id.NameInfo);
+//                    Name = (TextView)findViewById(R.id.NameInfo);
                     Birthdate = (TextView)findViewById(R.id.BirthDateInfo);
                     Gender = (TextView)findViewById(R.id.GenderInfo);
 
                     Email.setText(member.getEmail());
                     Nickname.setText(member.getNickname());
-                    Name.setText(member.getRealName());
+//                    Name.setText(member.getRealName());
                     Birthdate.setText(member.getBirthDate());
                     Gender.setText(member.getGender());
                 }
