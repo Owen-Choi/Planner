@@ -43,14 +43,9 @@ public class GroupAdapter extends BaseAdapter {
         return groupList.get(position);
     }
 
-    public void addItem(String gname, ArrayList userList)
+    public void addItem(GroupContent GroupInfo)
     {
-        GroupContent item = new GroupContent();
-
-        item.setName(gname);
-        item.setUserList(userList);
-
-        groupList.add(item);
+        groupList.add(GroupInfo);
     }
 
     @Override
@@ -68,7 +63,7 @@ public class GroupAdapter extends BaseAdapter {
 
         GroupContent groupContent = groupList.get(position);
 
-        gnameTextView.setText(groupContent.getName());
+        gnameTextView.setText(groupContent.getGname());
         usernumTextView.setText("인원 수 : " + Integer.toString(groupContent.getUserList().size())); //유저리스트의 사이즈를 text2에 씀
 
         return convertView;

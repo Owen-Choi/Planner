@@ -88,6 +88,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+
     // floating button onClickListener 설정
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override

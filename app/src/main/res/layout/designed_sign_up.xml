@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="반가워요!"
+                    android:textColor="@color/BrightBlue"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text=" 로그인 정보"
+                android:textStyle="bold"
+                android:textColor="@color/BrightBlue" />
+
+            <EditText
+                android:id="@+id/SignUpEmailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:cursorVisible="false"
+                android:hint="   이메일"
+                android:width="10dp"
+                android:background="@drawable/border"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/SignUpPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:cursorVisible="false"
+                android:hint="   비밀번호"
+                android:background="@drawable/border"
+                android:inputType="textPassword" />
+
+
+            <TextView
+                android:id="@+id/Seperator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text=" 회원 정보"
+                android:textStyle="bold"
+                android:textColor="@color/BrightBlue" />
+
+            <EditText
+                android:id="@+id/SignUpNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:cursorVisible="false"
+                android:hint="   본명"
+                android:background="@drawable/border"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/SignUpNicknameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:cursorVisible="false"
+                android:hint="   닉네임"
+                android:background="@drawable/border"
+                android:inputType="textPostalAddress" />
+
+
+            <EditText
+                android:id="@+id/SignUpBirthDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:cursorVisible="false"
+                android:hint="   생년월일 YYYY-MM-DD"
+                android:background="@drawable/border"
+                android:inputType="date" />
+
+
+            <RadioGroup
+                android:id="@+id/GenderRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/FemaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="여성" />
+
+                <RadioButton
+                    android:id="@+id/MaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="남성" />
+
+            </RadioGroup>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/SignUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round"
+                android:backgroundTint="#CDC9C3"
+                android:layout_marginBottom="20dp"
+                android:elevation="20dp"
+                android:text="회원가입"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
