@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -39,7 +40,7 @@ public class MyGroupFragment extends Fragment {
     String TAG = "GroupFragment";
     private ArrayList<GroupContent> groupList;
 
-    private FirebaseUser curUser;
+    private FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private GroupAdapter adapter;
 
@@ -57,28 +58,19 @@ public class MyGroupFragment extends Fragment {
         listView.setAdapter(adapter);
         adapter = new GroupAdapter();
 
-//        adapter.addItem("group1");
-//        adapter.addItem("group222");
-
-//        db.collection("Group")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                                           @Override
-//                                           public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                               if (task.isSuccessful()) {
-//                                                   for (QueryDocumentSnapshot document : task.getResult()) {
-//                                                       Log.d(TAG, document.getId() + " => " + document.getData());
-//                                                       adapter.addItem((String) document.getData().get("gname"), (ArrayList) document.getData().get("usernum"));
-//                                                       System.out.println((String) document.getData().get("gname") + " and " + (ArrayList) document.getData().get("usernum"));
-//                                                       //System.out.println(document.getData().get("gname"));
-//                                                       //groupList.add(document.toObject(GroupContent.class));
-//                                                       //System.out.println(document + "!!!!!!" +groupList);
-//                                                       //System.out.println("for문 1 " + document.getData().get("gname"));
-//                                                   }
-//                                                   //System.out.println("전체 " + groupList);
-//                                               }
-//                                           }
-//                                       });
+        db.collectionGroup("My_Group").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        GroupContent tempContent = document.toObject(GroupContent.class);
+                        if(MemberCheck(tempContent.getUserList())) {
+                            adapter.addItem(tempContent);
+                        }
+                    }
+                }
+            }
+        });
         adapter.notifyDataSetChanged();
 
 
@@ -86,34 +78,6 @@ public class MyGroupFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                여기는 내 그룹이니까 비밀번호 입력할 필요 없잖아?
-//                //그룹 들어가기 전 pw 입력받기
-//                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-//
-//                alert.setTitle("Input Group pw");
-//                alert.setMessage("ex.1234");
-//
-//                final EditText pw = new EditText(getContext());
-//                alert.setView(pw);
-//
-//                alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        String g_pw = pw.getText().toString();
-//                        //TODO: '비밀번호가 일치한다면' 의 조건 작성
-//                        StartActivity(EachGroupActivity.class,i);
-//                    }
-//                });
-//
-//                alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                    }
-//                });
-//
-//                alert.show();
-
                 StartActivity(EachGroupActivity.class,i);
             }
 
@@ -129,29 +93,12 @@ public class MyGroupFragment extends Fragment {
 
     }
 
+    private boolean MemberCheck(ArrayList<String> memberUid) {
+        for (String uid : memberUid) {
+            if(uid.equals(curUser.getUid()))
+                return true;
+        }
+        return false;
+    }
+
 }
-
-//    ArrayAdapter<GroupContent> adapter= new ArrayAdapter<GroupContent>(getActivity(), android.R.layout.simple_list_item_1, groupList)
-//    {
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent)
-//        {
-//            View view = super.getView(position, convertView, parent);
-//            TextView tv = (TextView) view.findViewById(android.R.id.text1);
-//            tv.setTextColor(Color.BLACK); //?? 리스트뷰 색깔
-//            return view;
-//        }
-//    };
-//                                                   listView.setAdapter(adapter);
-
-
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                Intent intent = new Intent(getActivity(), EachGroupFragment.class); //현재 화면 -> 넘어갈 화면
-//                intent.putExtra("name", (Parcelable) group.get(position));
-//                startActivity(intent);
-//            }
-//        });
