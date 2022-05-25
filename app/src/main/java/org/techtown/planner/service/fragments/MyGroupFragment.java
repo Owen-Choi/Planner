@@ -47,6 +47,7 @@ public class MyGroupFragment extends Fragment {
     public MyGroupFragment() {
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,9 +56,7 @@ public class MyGroupFragment extends Fragment {
         groupList = new ArrayList<>();
 
         ListView listView= (ListView) rootView.findViewById(R.id.my_group_list);
-        listView.setAdapter(adapter);
         adapter = new GroupAdapter();
-
         db.collectionGroup("My_Group").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -68,11 +67,11 @@ public class MyGroupFragment extends Fragment {
                             adapter.addItem(tempContent);
                         }
                     }
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
-        adapter.notifyDataSetChanged();
-
+        listView.setAdapter(adapter);
 
         //
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

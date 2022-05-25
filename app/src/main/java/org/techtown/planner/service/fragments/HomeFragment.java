@@ -106,12 +106,6 @@ public class HomeFragment extends Fragment {
                     i.putExtra("mode",REQUEST_ADD);
                     startActivityForResult(i,REQUEST_ADD);
                     break;
-//                case R.id.save_floating_button:
-//                    saveByPreference(timetable.createSaveData());
-//                    break;
-//                case R.id.load_floating_button:
-//                    loadSavedData();
-//                    break;
                 case R.id.clear_floating_button:
                     // DB에서 일정 다 지워주고 테이블 클리어
                     DialogManager();
@@ -156,21 +150,6 @@ public class HomeFragment extends Fragment {
         clear.setEnabled(true);
     }
 
-    // 저장 및 불러오기 함수
-//    private void saveByPreference(String data){
-//        SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(getContext());
-//        SharedPreferences.Editor editor = mPref.edit();
-//        editor.putString("timetable_demo",data);
-//        editor.commit();
-//    }
-//    /** get json data from SharedPreferences and then restore the timetable */
-//    private void loadSavedData(){
-//        timetable.removeAll();
-//        SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(getContext());
-//        String savedData = mPref.getString("timetable_demo","");
-//        if(savedData == null && savedData.equals("")) return;
-//        timetable.load(savedData);
-//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

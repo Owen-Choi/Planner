@@ -5,13 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,7 +64,7 @@ public class EachGroupActivity extends AppCompatActivity {
             }
         }
 
-        tempInit();
+        Init();
     }
 
     @Override
@@ -81,8 +78,8 @@ public class EachGroupActivity extends AppCompatActivity {
         int curId = item.getItemId();
         switch (curId){
             case R.id.menu_refresh:
-                Toast.makeText(this, "새로고침", Toast.LENGTH_SHORT).show();
-                //TODO: schedule 취합 알고리즘 부르기
+                // 색 바뀌는건 마음이 아프지만 어쩔 수 없다,,,,
+                Init();
                 break;
             case R.id.menu_fix:
                 timeFixing();
@@ -91,16 +88,17 @@ public class EachGroupActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-        private void tempInit() {
-            for(int i=0; i<5; i++) {
-                Schedule newSchedule = new Schedule();
-                newSchedule.setDay(i);
-                newSchedule.setStartTime(StartTime);
-                newSchedule.setEndTime(EndTime);
-                available.add(newSchedule);
-            }
-
-            GroupTimetable.add(available);
+        private void Init() {
+        // 그냥 배경 가능한 시간대를 아예 표시를 해주지 말자. 약간 보기 흉하다.
+//            for(int i=0; i<5; i++) {
+//                Schedule newSchedule = new Schedule();
+//                newSchedule.setDay(i);
+//                newSchedule.setStartTime(StartTime);
+//                newSchedule.setEndTime(EndTime);
+//                available.add(newSchedule);
+//            }
+//
+//            GroupTimetable.add(available);
 
             getMemberSchedule();
         }
@@ -154,12 +152,16 @@ public class EachGroupActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_ADD) {
-            if (resultCode == EditActivity.RESULT_OK_ADD) {
+            if (resultCode == FixActivity.RESULT_OK_ADD) {
                 Schedule schedule = (Schedule)data.getSerializableExtra("schedule");
                 if(checkFixTime(schedule))
-                    StartToast("추가 가능");
+                    // 그룹원들한테 픽스된 스케쥴 넣어주기
+                    scatterScheduleToMember(schedule);
                 else
                     StartToast("추가 불가능");
+            } else if(resultCode == FixActivity.RESULT_FAIL_ADD) {
+                Log.e(TAG, "조건 불만족으로 추가 실패");
+                StartToast("빈칸을 확인해주세요.");
             }
         }
     }
@@ -223,6 +225,35 @@ public class EachGroupActivity extends AppCompatActivity {
         return check;
     }
     //////////////////////////////////////////////////////
+
+    private void scatterScheduleToMember(Schedule schedule) {
+        // db 돌면서 회원들한테 스케쥴 뿌려주기
+        ArrayList<String> userList = groupInfo.getUserList();
+        String documentName = schedule.getDay() + " " + schedule.getClassTitle();
+        for (String memberUid : userList) {
+            db.collection("Schedule").document(memberUid).collection("Personal_schedules")
+                    .document(documentName).set(getScheduleInfo(schedule)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    Log.e(TAG, "onComplete: " + memberUid + " 에게 스케쥴을 추가하였습니다.");
+                }
+            });
+        }
+    }
+
+    private ScheduleInfo getScheduleInfo(Schedule schedule) {
+        ScheduleInfo newSchedule = new ScheduleInfo(
+                schedule.getStartTime().getHour(),
+                schedule.getStartTime().getMinute(),
+                schedule.getEndTime().getHour(),
+                schedule.getEndTime().getMinute(),
+                user.getUid(),
+                schedule.getClassTitle(),
+                schedule.getClassPlace(),
+                schedule.getProfessorName(),
+                schedule.getDay());
+        return newSchedule;
+    }
 
         private void StartToast(String msg) {
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
