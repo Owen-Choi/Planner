@@ -5,13 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,7 +64,7 @@ public class EachGroupActivity extends AppCompatActivity {
             }
         }
 
-        tempInit();
+        Init();
     }
 
     @Override
@@ -81,8 +78,8 @@ public class EachGroupActivity extends AppCompatActivity {
         int curId = item.getItemId();
         switch (curId){
             case R.id.menu_refresh:
-                Toast.makeText(this, "새로고침", Toast.LENGTH_SHORT).show();
-                //TODO: schedule 취합 알고리즘 부르기
+                // 색 바뀌는건 마음이 아프지만 어쩔 수 없다,,,,
+                Init();
                 break;
             case R.id.menu_fix:
                 timeFixing();
@@ -91,16 +88,17 @@ public class EachGroupActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-        private void tempInit() {
-            for(int i=0; i<5; i++) {
-                Schedule newSchedule = new Schedule();
-                newSchedule.setDay(i);
-                newSchedule.setStartTime(StartTime);
-                newSchedule.setEndTime(EndTime);
-                available.add(newSchedule);
-            }
-
-            GroupTimetable.add(available);
+        private void Init() {
+        // 그냥 배경 가능한 시간대를 아예 표시를 해주지 말자. 약간 보기 흉하다.
+//            for(int i=0; i<5; i++) {
+//                Schedule newSchedule = new Schedule();
+//                newSchedule.setDay(i);
+//                newSchedule.setStartTime(StartTime);
+//                newSchedule.setEndTime(EndTime);
+//                available.add(newSchedule);
+//            }
+//
+//            GroupTimetable.add(available);
 
             getMemberSchedule();
         }

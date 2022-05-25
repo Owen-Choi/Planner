@@ -58,9 +58,9 @@ public class GroupFragment extends Fragment {
         groupList = new ArrayList<>();
 
         ListView listView= (ListView) rootView.findViewById(R.id.list);
-        listView.setAdapter(adapter);
-        adapter = new GroupAdapter();
 
+        adapter = new GroupAdapter();
+        listView.setAdapter(adapter);
 
         setHasOptionsMenu(true);
 
@@ -77,10 +77,10 @@ public class GroupFragment extends Fragment {
                         if(!already_joined(tempContent.getUserList()))
                             adapter.addItem(tempContent);
                     }
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
-        adapter.notifyDataSetChanged();
 
 
         //
@@ -104,20 +104,15 @@ public class GroupFragment extends Fragment {
 //                        StartActivity(EachGroupActivity.class,index);
                     }
                 });
-
                 alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         StartToast("취소되었습니다.");
                     }
                 });
-
                 alert.show();
-
             }
-
         });
-
         // floating button 관련, 철웅 추가
         add = (FloatingActionButton)rootView.findViewById(R.id.add_group_floating_button);
         add.setOnClickListener(new View.OnClickListener() {
@@ -128,8 +123,13 @@ public class GroupFragment extends Fragment {
         });
 
         return rootView;
+    }
 
-
+    @Override
+    public void onResume() {
+        adapter.notifyDataSetChanged();
+        Log.e(TAG, " : " + adapter.getCount());
+        super.onResume();
     }
 
     private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i, GroupContent groupInfo) {
