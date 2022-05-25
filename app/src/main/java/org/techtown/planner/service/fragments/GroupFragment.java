@@ -1,9 +1,7 @@
 package org.techtown.planner.service.fragments;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,16 +10,11 @@ import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -201,8 +194,9 @@ public class GroupFragment extends Fragment {
                                     StartActivity(EachGroupActivity.class,index);
                                     return;
                                 }
-                                // 생각해보니 가입시스템이 아니네?
-                                // 그래도 혹시 필요할 수 있으니 주석처리 해두겠음.
+                                // 최대 인원수를 넘지 않았는지 확인
+                                if(!isAvailable(tempContent))
+                                    return;
                                 ArrayList<String> UpdatedList = ForChecking;
                                 GroupContent newGroupContent =
                                         new GroupContent(
@@ -233,6 +227,12 @@ public class GroupFragment extends Fragment {
                 // 이미 가입한 그룹.
                 return true;
         }
+        return false;
+    }
+
+    private boolean isAvailable(GroupContent temp) {
+        if(temp.getUserList().size() < temp.getMaxNum())
+            return true;
         return false;
     }
 
