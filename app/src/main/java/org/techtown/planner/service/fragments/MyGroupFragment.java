@@ -78,12 +78,13 @@ public class MyGroupFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                StartActivity(EachGroupActivity.class,i);
+                StartActivity(EachGroupActivity.class,i, (GroupContent) adapter.getItem(i));
             }
 
-            private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
+            private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i, GroupContent groupInfo) {
                 Intent intent= new Intent(getContext(),eachGroupFragmentClass);
                 intent.putExtra("i",i+1);
+                intent.putExtra("groupContent", groupInfo);
                 startActivity(intent);
             }
         });
