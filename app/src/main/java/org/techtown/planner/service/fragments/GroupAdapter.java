@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.techtown.planner.R;
@@ -16,6 +17,7 @@ public class GroupAdapter extends BaseAdapter {
 
     private TextView gnameTextView;
     private TextView usernumTextView;
+    private LinearLayout background_LinearLayout;
     //private TextView maxnumTextView;
 
     private ArrayList<GroupContent> groupList = new ArrayList<GroupContent>();
@@ -59,7 +61,13 @@ public class GroupAdapter extends BaseAdapter {
         //maxnumTextView = (TextView) convertView.findViewById(R.id.text3);
         gnameTextView = (TextView) convertView.findViewById(R.id.groupNameTextView);
         usernumTextView = (TextView) convertView.findViewById(R.id.memberNumTextView1);
-
+        background_LinearLayout = (LinearLayout)convertView.findViewById(R.id.background_linearLayout);
+        if(position % 2 == 0)
+            background_LinearLayout.setBackgroundColor(context.getResources().getColor(R.color.BrightBlue));
+        else if(position % 3 == 0)
+            background_LinearLayout.setBackgroundColor(context.getResources().getColor(R.color.BrightOrange));
+        else
+            background_LinearLayout.setBackgroundColor(context.getResources().getColor(R.color.BrightGreen));
         GroupContent groupContent = groupList.get(position);
 
         gnameTextView.setText(groupContent.getGname());

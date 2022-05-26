@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="그룹명"
-            android:textColor="#8BC34A"
+            android:textColor="#FFC107"
             android:textSize="30dp" />
 
         <TextView
