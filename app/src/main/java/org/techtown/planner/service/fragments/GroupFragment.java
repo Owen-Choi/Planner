@@ -58,9 +58,9 @@ public class GroupFragment extends Fragment {
         groupList = new ArrayList<>();
 
         ListView listView= (ListView) rootView.findViewById(R.id.list);
-        listView.setAdapter(adapter);
-        adapter = new GroupAdapter();
 
+        adapter = new GroupAdapter();
+        listView.setAdapter(adapter);
 
         setHasOptionsMenu(true);
 
@@ -77,10 +77,10 @@ public class GroupFragment extends Fragment {
                         if(!already_joined(tempContent.getUserList()))
                             adapter.addItem(tempContent);
                     }
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
-        adapter.notifyDataSetChanged();
 
 
         //
@@ -104,20 +104,15 @@ public class GroupFragment extends Fragment {
 //                        StartActivity(EachGroupActivity.class,index);
                     }
                 });
-
                 alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         StartToast("취소되었습니다.");
                     }
                 });
-
                 alert.show();
-
             }
-
         });
-
         // floating button 관련, 철웅 추가
         add = (FloatingActionButton)rootView.findViewById(R.id.add_group_floating_button);
         add.setOnClickListener(new View.OnClickListener() {
@@ -128,13 +123,19 @@ public class GroupFragment extends Fragment {
         });
 
         return rootView;
-
-
     }
 
-    private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i) {
+    @Override
+    public void onResume() {
+        adapter.notifyDataSetChanged();
+        Log.e(TAG, " : " + adapter.getCount());
+        super.onResume();
+    }
+
+    private void StartActivity(Class<EachGroupActivity> eachGroupFragmentClass, int i, GroupContent groupInfo) {
         Intent intent= new Intent(getContext(),eachGroupFragmentClass);
         intent.putExtra("i",i+1);
+        intent.putExtra("groupContent", groupInfo);
         startActivity(intent);
     }
 
@@ -195,7 +196,7 @@ public class GroupFragment extends Fragment {
                                     // 이미 가입한 그룹이다.
                                     // 이 경우 별도의 데이터베이스 업데이트 없이 바로 그룹 액티비티 호출하면 되겠다.
                                     Log.e(TAG, "이미 가입한 그룹, 데이터베이스 업데이트 생략");
-                                    StartActivity(EachGroupActivity.class,index);
+                                    StartActivity(EachGroupActivity.class,index, tempContent);
                                     return;
                                 }
                                 // 최대 인원수를 넘지 않았는지 확인
@@ -212,7 +213,7 @@ public class GroupFragment extends Fragment {
                                 UpdatedList.add(curUser.getUid());
                                 DocumentReference reference = document.getReference();
                                 reference.set(newGroupContent);
-                                StartActivity(EachGroupActivity.class,index);
+                                StartActivity(EachGroupActivity.class,index, tempContent);
                             } else {
                                 // 비밀번호 불일치
                                 StartToast("비밀번호가 틀렸습니다.");
@@ -235,16 +236,16 @@ public class GroupFragment extends Fragment {
     }
 
     private boolean isAvailable(GroupContent temp) {
-        if(temp.getUserList().size() < temp.getMaxNum())
+        if(temp.getUserList().size() < temp.getMaxNum()) {
+            StartToast("그룹이 꽉 찼습니다.");
             return true;
+        }
         return false;
     }
 
     private boolean PasswordChecker(GroupContent fromDB, String password) {
-        if(!fromDB.getGroupPassword().equals(password)) {
-            StartToast("그룹이 꽉 찼습니다.");
+        if(!fromDB.getGroupPassword().equals(password))
             return false;
-        }
         return true;
     }
 }

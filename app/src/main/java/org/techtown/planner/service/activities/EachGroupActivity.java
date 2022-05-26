@@ -1,45 +1,70 @@
 package org.techtown.planner.service.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.Time;
 import com.github.tlaabs.timetableview.TimetableView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.techtown.planner.R;
+import org.techtown.planner.domain.Group.GroupContent;
+import org.techtown.planner.domain.schedule.ScheduleInfo;
 
 import java.util.ArrayList;
 
 public class EachGroupActivity extends AppCompatActivity {
-    public static final int RESULT_OK_ADD = 1;
     public TextView text1;
     private TimetableView GroupTimetable;
     ArrayList<Schedule> available = new ArrayList<>();
     ArrayList<Schedule> unavailable = new ArrayList<>();
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    GroupContent groupInfo;
     static final Time StartTime = new Time(9, 0);
     static final Time EndTime = new Time(20, 0);
+    static final int REQUEST_ADD = 1;
+    static final String TAG = "EachGroupActivity";
+
+    // 채영 추가
+    private int [][] check_time = new int[5][21];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_each_group);
-        int position = getIntent().getIntExtra("i",1);
+        Intent intent = getIntent();
+        int position = intent.getIntExtra("i",1);
         text1 = findViewById(R.id.text1);
         String temp = String.valueOf(position) + "번 그룹";
         text1.setText(temp);
         GroupTimetable = findViewById(R.id.groupTimetable);
-        tempInit();
+        groupInfo = (GroupContent) intent.getSerializableExtra("groupContent");
+
+        for(int i = 0; i < check_time.length; i++){
+            for(int j = 0; j < check_time[i].length; j++){
+                check_time[i][j] = 0;
+            }
+        }
+
+        Init();
     }
 
     @Override
@@ -53,81 +78,184 @@ public class EachGroupActivity extends AppCompatActivity {
         int curId = item.getItemId();
         switch (curId){
             case R.id.menu_refresh:
-                Toast.makeText(this, "새로고침", Toast.LENGTH_SHORT).show();
-                //TODO: schedule 취합 알고리즘 부르기
+                // 색 바뀌는건 마음이 아프지만 어쩔 수 없다,,,,
+                Init();
                 break;
             case R.id.menu_fix:
-                Toast.makeText(this, "그룹 시간 정하기", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(EachGroupActivity.this, FixActivity.class);
-
-                intent.putExtra("mode", RESULT_OK_ADD);
-                startActivityForResult(intent, 0);
-//                startActivity(intent);
+                timeFixing();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-        private void tempInit() {
-            for(int i=0; i<5; i++) {
-                Schedule newSchedule = new Schedule();
-                newSchedule.setDay(i);
-                newSchedule.setStartTime(StartTime);
-                newSchedule.setEndTime(EndTime);
-                available.add(newSchedule);
+        private void Init() {
+        // 그냥 배경 가능한 시간대를 아예 표시를 해주지 말자. 약간 보기 흉하다.
+//            for(int i=0; i<5; i++) {
+//                Schedule newSchedule = new Schedule();
+//                newSchedule.setDay(i);
+//                newSchedule.setStartTime(StartTime);
+//                newSchedule.setEndTime(EndTime);
+//                available.add(newSchedule);
+//            }
+//
+//            GroupTimetable.add(available);
+
+            getMemberSchedule();
+        }
+
+        // 일정
+        private void getMemberSchedule() {
+            ArrayList<String> userList = groupInfo.getUserList();
+            for (String uid : userList) {
+                db.collection("Schedule").document(uid).collection("Personal_schedules")
+                        .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                ScheduleInfo scheduleInfo = document.toObject(ScheduleInfo.class);
+                                Schedule MemberSchedule = new Schedule();
+                                MemberSchedule.setDay(scheduleInfo.getDay());
+                                MemberSchedule.setStartTime(
+                                        new Time(scheduleInfo.getStartTimeHour(), scheduleInfo.getStartTimeMinute()));
+                                MemberSchedule.setClassTitle(scheduleInfo.getClassTitle());
+                                MemberSchedule.setEndTime(
+                                        new Time(scheduleInfo.getEndTimeHour(), scheduleInfo.getEndTimeMinute()));
+                                unavailable.add(MemberSchedule);
+                                setArrayValue(MemberSchedule);
+                            }
+                            GroupTimetable.add(unavailable);
+                        }
+                    }
+                });
             }
+        }
 
-            GroupTimetable.add(available);
+        private void timeFixing() {
+            if(permissionCheck()) {
+                // 방장이라면 시간을 고정할 수 있다.
+                Intent intent = new Intent(EachGroupActivity.this, FixActivity.class);
+                intent.putExtra("mode", REQUEST_ADD);
+                startActivityForResult(intent, REQUEST_ADD);
+            } else {
+                StartToast("권한이 없습니다.");
+            }
+        }
 
-            /////////////////////////////////////////////////////////
-            // 여기서 부터는 그룹원들의 시간표 취합한 리스트.
-            // 위에서 시간표의 모든 시간에 일정을 등록해놓으면 아래에서 그 일정 위에 그룹원들의 일정을 덮어쓰는 방식.
-            Schedule tempSchedule1 = new Schedule();
-            tempSchedule1.setDay(0);
-            tempSchedule1.setStartTime(new Time(13, 0));
-            tempSchedule1.setEndTime(new Time(15, 0));
-            tempSchedule1.setClassTitle("Operating System");
-            tempSchedule1.setClassPlace("IT-601");
-            tempSchedule1.setProfessorName("Yoo Joon");
+        private boolean permissionCheck() {
+            if(user.getUid().equals(groupInfo.getMasterID()))
+                return true;
+            return false;
+        }
 
-            Schedule tempSchedule2 = new Schedule();
-            tempSchedule2.setDay(1);
-            tempSchedule2.setStartTime(new Time(10, 0));
-            tempSchedule2.setEndTime(new Time(12, 0));
-            tempSchedule2.setClassTitle("Robotics");
-            tempSchedule2.setClassPlace("IT-304");
-            tempSchedule2.setProfessorName("YongJoo Jeong");
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_ADD) {
+            if (resultCode == FixActivity.RESULT_OK_ADD) {
+                Schedule schedule = (Schedule)data.getSerializableExtra("schedule");
+                if(checkFixTime(schedule))
+                    // 그룹원들한테 픽스된 스케쥴 넣어주기
+                    scatterScheduleToMember(schedule);
+                else
+                    StartToast("추가 불가능");
+            } else if(resultCode == FixActivity.RESULT_FAIL_ADD) {
+                Log.e(TAG, "조건 불만족으로 추가 실패");
+                StartToast("빈칸을 확인해주세요.");
+            }
+        }
+    }
 
-            Schedule tempSchedule3 = new Schedule();
-            tempSchedule3.setDay(3);
-            tempSchedule3.setStartTime(new Time(13, 0));
-            tempSchedule3.setEndTime(new Time(15, 0));
-            tempSchedule3.setClassTitle("Mobile Programming");
-            tempSchedule3.setClassPlace("AI-415");
-            tempSchedule3.setProfessorName("JongHyeon Ahn");
+    //////////////////////////////////////////////////////
+    // 채영 로직
+    private void setArrayValue(Schedule sample){
+        int ch_day = sample.getDay();
+        int start_m = sample.getStartTime().getMinute();
+        int start_h = sample.getStartTime().getHour();
 
-            Schedule tempSchedule4 = new Schedule();
-            tempSchedule4.setDay(3);
-            tempSchedule4.setStartTime(new Time(9, 0));
-            tempSchedule4.setEndTime(new Time(13, 0));
-            tempSchedule4.setClassTitle("Firebase");
-            tempSchedule4.setClassPlace("Yatap");
-            tempSchedule4.setProfessorName("Cheolwoong Choi");
+        int end_m = sample.getEndTime().getMinute();
+        int end_h = sample.getEndTime().getHour();
 
-            Schedule tempSchedule5 = new Schedule();
-            tempSchedule5.setDay(2);
-            tempSchedule5.setStartTime(new Time(9, 0));
-            tempSchedule5.setEndTime(new Time(13, 30));
-            tempSchedule5.setClassTitle("Database");
-            tempSchedule5.setClassPlace("Yatap");
-            tempSchedule5.setProfessorName("Cheolwoong Choi");
+        int start_index, end_index;
 
-            unavailable.add(tempSchedule1);
-            unavailable.add(tempSchedule2);
-            unavailable.add(tempSchedule3);
-            unavailable.add(tempSchedule4);
-            unavailable.add(tempSchedule5);
+        if (start_m == 0){
+            start_index = start_h - 9;
+        } else {
+            start_index = start_h - 8;
+        }
 
-            GroupTimetable.add(unavailable);
+        if (end_m == 0){
+            end_index = end_h - 9;
+        } else {
+            end_index = end_h - 8;
+        }
+
+        for(int i = start_index; i <= end_index; i++){
+            check_time[ch_day][i] = 1;
+        }
+    }
+
+    private boolean checkFixTime(Schedule ss){
+        int group_day = ss.getDay();
+        int g_start_m = ss.getStartTime().getMinute();
+        int g_start_h = ss.getStartTime().getHour();
+        int g_end_m = ss.getEndTime().getMinute();
+        int g_end_h = ss.getEndTime().getHour();
+        boolean check = true;
+
+        int g_start_idx, g_end_idx;
+
+        if (g_start_m == 0){
+            g_start_idx = g_start_h - 9;
+        } else {
+            g_start_idx = g_start_h - 8;
+        }
+
+        if (g_end_m == 0){
+            g_end_idx = g_end_h - 9;
+        } else {
+            g_end_idx = g_end_h - 8;
+        }
+        for(int i = g_start_idx; i <= g_end_idx; i++){
+            if(check_time[group_day][i] == 1){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    }
+    //////////////////////////////////////////////////////
+
+    private void scatterScheduleToMember(Schedule schedule) {
+        // db 돌면서 회원들한테 스케쥴 뿌려주기
+        ArrayList<String> userList = groupInfo.getUserList();
+        String documentName = schedule.getDay() + " " + schedule.getClassTitle();
+        for (String memberUid : userList) {
+            db.collection("Schedule").document(memberUid).collection("Personal_schedules")
+                    .document(documentName).set(getScheduleInfo(schedule)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    Log.e(TAG, "onComplete: " + memberUid + " 에게 스케쥴을 추가하였습니다.");
+                }
+            });
+        }
+    }
+
+    private ScheduleInfo getScheduleInfo(Schedule schedule) {
+        ScheduleInfo newSchedule = new ScheduleInfo(
+                schedule.getStartTime().getHour(),
+                schedule.getStartTime().getMinute(),
+                schedule.getEndTime().getHour(),
+                schedule.getEndTime().getMinute(),
+                user.getUid(),
+                schedule.getClassTitle(),
+                schedule.getClassPlace(),
+                schedule.getProfessorName(),
+                schedule.getDay());
+        return newSchedule;
+    }
+
+        private void StartToast(String msg) {
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         }
 }

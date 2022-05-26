@@ -33,7 +33,7 @@ public class GroupSchedule extends AppCompatActivity {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private final FirebaseUser user = firebaseAuth.getCurrentUser();
-    private int [] check_time = new int[21];
+    private int [][] check_time = new int[5][21];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,12 @@ public class GroupSchedule extends AppCompatActivity {
 
         timetable.add(available);
 
+        for(int i = 0; i < check_time.length; i++){
+            for(int j = 0; j < check_time[i].length; j++){
+                check_time[i][j] = 0;
+            }
+        }
+
         //개인시간표를 그룹시간표에 덧붙이기
         addPersonalSchedule();
     }
@@ -126,9 +132,7 @@ public class GroupSchedule extends AppCompatActivity {
     // available : 0, unavailable : 1
     // 그룹 시간 fix 할 때 unavailable 체크용으로 사용
     private void setArrayValue(Schedule sample){
-        for(int i = 0; i < check_time.length; i++)
-            check_time[i] = 0;
-
+        int ch_day = sample.getDay();
         int start_m = sample.getStartTime().getMinute();
         int start_h = sample.getStartTime().getHour();
 
@@ -150,23 +154,38 @@ public class GroupSchedule extends AppCompatActivity {
         }
 
         for(int i = start_index; i <= end_index; i++){
-            check_time[i] = 1;
+            check_time[ch_day][i] = 1;
         }
     }
 
     //배열은 그룹 스케쥴을 관리하는 배열을 의미
-    private boolean checkFixTime(int check_arr[]){
-        int group_start_idx = 0;    //그룹 시간 설정 되면 index 받아올 수 있음
-        int group_end_idx = 0;
+    private boolean checkFixTime(Schedule ss){
+        int group_day = ss.getDay();
+        int g_start_m = ss.getStartTime().getMinute();
+        int g_start_h = ss.getStartTime().getHour();
+        int g_end_m = ss.getEndTime().getMinute();
+        int g_end_h = ss.getEndTime().getHour();
         boolean check = true;
 
-        for(int i = group_start_idx; i <= group_end_idx; i++){
-            if(check_arr[i] == 1){
+        int g_start_idx, g_end_idx;
+
+        if (g_start_m == 0){
+            g_start_idx = g_start_h - 9;
+        } else {
+            g_start_idx = g_start_h - 8;
+        }
+
+        if (g_end_m == 0){
+            g_end_idx = g_end_h - 9;
+        } else {
+            g_end_idx = g_end_h - 8;
+        }
+        for(int i = g_start_idx; i <= g_end_idx; i++){
+            if(check_time[group_day][i] == 1){
                 check = false;
                 break;
             }
         }
         return check;
     }
-
 }
