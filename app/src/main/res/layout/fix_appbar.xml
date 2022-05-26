@@ -10,8 +10,13 @@
         android:id="@+id/fixbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#FFC107"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/ilovemilk"
         android:text="Fix"
-        android:layout_marginTop="20dp"/>
+        android:textColor="@drawable/background_color"
+        android:textFontWeight="800" />
 
 
 </LinearLayout>

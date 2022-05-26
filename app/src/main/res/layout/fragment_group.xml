@@ -7,17 +7,23 @@
 
 
     <TextView
-        android:gravity="center"
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="그룹 리스트" />
+        android:fontFamily="@font/ilovemilk"
+        android:gravity="center"
+        android:text="그룹 리스트"
+        android:textColor="#7DB2DC"
+        android:textFontWeight="800"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"/>
 
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

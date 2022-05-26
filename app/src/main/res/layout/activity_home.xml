@@ -32,6 +32,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu"
         app:itemBackground="@android:color/holo_green_dark"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

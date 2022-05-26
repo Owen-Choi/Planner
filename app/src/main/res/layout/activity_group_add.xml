@@ -13,38 +13,58 @@
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="328dp"
-        app:srcCompat="@drawable/meeting" />
+        app:srcCompat="@drawable/meeting"
+        />
 
     <EditText
         android:id="@+id/GroupNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="그룹명을 입력해주세요"
+        android:hint=" 그룹명을 입력해주세요"
         android:inputType="textPersonName"
-        android:textColorHint="#8BC34A" />
+        android:textColorHint="#8BC34A"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:textSize="25dp"
+        android:layout_marginTop="40dp"/>
 
     <EditText
         android:id="@+id/MaxPeopleNumEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="최대 인원수를 입력해주세요"
+        android:hint=" 최대 인원수를 입력해주세요"
         android:inputType="textPersonName"
-        android:textColorHint="#8BC34A" />
+        android:textColorHint="#8BC34A"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/GroupPasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="비밀번호를 입력주세요"
+        android:hint=" 비밀번호를 입력주세요"
         android:inputType="textPersonName"
-        android:textColorHint="#8BC34A" />
+        android:textColorHint="#8BC34A"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/GroupCreateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="생성" />
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/ilovemilk"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:text="생성"
+        android:textFontWeight="600"
+        android:textSize="25dp" />
 </LinearLayout>

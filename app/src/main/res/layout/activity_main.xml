@@ -32,7 +32,9 @@
                 android:hint="@string/signIn_email"
                 android:inputType="textEmailAddress"
                 android:textColor="#8BC34A"
-                android:textColorHint="#8BC34A" />
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <EditText
                 android:id="@+id/SignInPasswordEditText"
@@ -42,7 +44,9 @@
                 android:hint="@string/signIn_pw"
                 android:inputType="textPassword"
                 android:textColor="#8BC34A"
-                android:textColorHint="#8BC34A" />
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <Button
                 android:id="@+id/SignInButton"
@@ -51,7 +55,9 @@
                 android:layout_marginTop="100dp"
                 android:background="@drawable/btn_green"
                 android:text="Sign In"
-                android:textColor="#FFC107" />
+                android:textColor="#FFC107"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <Button
                 android:id="@+id/findPasswordButton"
@@ -59,13 +65,18 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFC107"
                 android:text="forgot password?"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <Button
                 android:id="@+id/MoveToSignUpButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign Up" />
+                android:text="Sign Up"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

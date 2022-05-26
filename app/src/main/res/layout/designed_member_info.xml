@@ -16,7 +16,9 @@
         android:text="회원정보"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="900"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,7 +38,10 @@
             android:text="유저 닉네임"
             android:textColor="@color/BrightOrange"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
 
@@ -47,7 +52,10 @@
         android:text="Name"
         android:textAlignment="viewStart"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:layout_marginTop="5dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -67,7 +75,10 @@
             android:text="이메일"
             android:textColor="@color/BrightOrange"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
 
@@ -78,7 +89,10 @@
         android:text="Address"
         android:textAlignment="viewStart"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:layout_marginTop="5dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -98,7 +112,10 @@
             android:text="생년월일"
             android:textColor="@color/BrightOrange"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
 
@@ -109,7 +126,10 @@
         android:text="Date"
         android:textAlignment="viewStart"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:layout_marginTop="5dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -132,7 +152,10 @@
             android:text="성별"
             android:textColor="@color/BrightOrange"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
 
@@ -143,7 +166,10 @@
         android:text="PhoneNumber"
         android:textAlignment="viewStart"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
+        android:layout_marginTop="5dp"/>
 
 
 </LinearLayout>

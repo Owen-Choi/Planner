@@ -5,9 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".service.activities.EditActivity">
+    tools:context=".service.activities.EditActivity"
+    android:background="@drawable/background_color">
 
-    <include layout="@layout/edit_appbar" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스케줄 등록하기"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="900"
+        android:textColor="@color/cardview_dark_background"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,22 +31,38 @@
             android:id="@+id/subject_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Subject" />
+            android:hint="Subject"
+            android:textColorHint="#8BC34A"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_marginBottom="10dp"/>
 
         <EditText
             android:id="@+id/classroom_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Classroom" />
+            android:hint="Classroom"
+            android:textColorHint="#8BC34A"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/professor_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Professor" />
+            android:hint="Professor"
+            android:textColorHint="#8BC34A"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_marginTop="10dp"/>
 
         <include layout="@layout/time_box"/>
 
+        <include layout="@layout/edit_appbar" />
     </LinearLayout>
 
 
