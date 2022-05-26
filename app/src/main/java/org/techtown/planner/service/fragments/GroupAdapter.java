@@ -53,12 +53,12 @@ public class GroupAdapter extends BaseAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.content_group, parent, false);
+            convertView = inflater.inflate(R.layout.designed_content_group, parent, false);
         }
 
         //maxnumTextView = (TextView) convertView.findViewById(R.id.text3);
-        gnameTextView = (TextView) convertView.findViewById(R.id.text1);
-        usernumTextView = (TextView) convertView.findViewById(R.id.text2);
+        gnameTextView = (TextView) convertView.findViewById(R.id.groupNameTextView);
+        usernumTextView = (TextView) convertView.findViewById(R.id.memberNumTextView1);
 
         GroupContent groupContent = groupList.get(position);
 
