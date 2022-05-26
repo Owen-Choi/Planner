@@ -16,12 +16,10 @@ public class GroupAdapter extends BaseAdapter {
 
     private TextView gnameTextView;
     private TextView usernumTextView;
-    //아마 인원수나 비공개 여부인지 정도?
+    //private TextView maxnumTextView;
 
     private ArrayList<GroupContent> groupList = new ArrayList<GroupContent>();
 
-//    int i = GroupContent.getUserList().size();
-//    ArrayList a = GroupContent.getUserList();
 
     public GroupAdapter() {  }
 
@@ -58,13 +56,14 @@ public class GroupAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.content_group, parent, false);
         }
 
+        //maxnumTextView = (TextView) convertView.findViewById(R.id.text3);
         gnameTextView = (TextView) convertView.findViewById(R.id.text1);
         usernumTextView = (TextView) convertView.findViewById(R.id.text2);
 
         GroupContent groupContent = groupList.get(position);
 
         gnameTextView.setText(groupContent.getGname());
-        usernumTextView.setText("인원 수 : " + Integer.toString(groupContent.getUserList().size())); //유저리스트의 사이즈를 text2에 씀
+        usernumTextView.setText("인원 수 : " + Integer.toString(groupContent.getUserList().size())+" / "+groupContent.getMaxNum()); //유저리스트의 사이즈를 text2에 씀
 
         return convertView;
 
