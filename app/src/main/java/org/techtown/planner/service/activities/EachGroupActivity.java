@@ -52,7 +52,7 @@ public class EachGroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_each_group);
         Intent intent = getIntent();
         int position = intent.getIntExtra("i",1);
-        text1 = findViewById(R.id.text1);
+        text1 = findViewById(R.id.groupNameTextView);
         String temp = String.valueOf(position) + "번 그룹";
         text1.setText(temp);
         GroupTimetable = findViewById(R.id.groupTimetable);
@@ -78,7 +78,6 @@ public class EachGroupActivity extends AppCompatActivity {
         int curId = item.getItemId();
         switch (curId){
             case R.id.menu_refresh:
-                // 색 바뀌는건 마음이 아프지만 어쩔 수 없다,,,,
                 Init();
                 break;
             case R.id.menu_fix:
@@ -89,17 +88,6 @@ public class EachGroupActivity extends AppCompatActivity {
     }
 
         private void Init() {
-        // 그냥 배경 가능한 시간대를 아예 표시를 해주지 말자. 약간 보기 흉하다.
-//            for(int i=0; i<5; i++) {
-//                Schedule newSchedule = new Schedule();
-//                newSchedule.setDay(i);
-//                newSchedule.setStartTime(StartTime);
-//                newSchedule.setEndTime(EndTime);
-//                available.add(newSchedule);
-//            }
-//
-//            GroupTimetable.add(available);
-
             getMemberSchedule();
         }
 
@@ -122,6 +110,7 @@ public class EachGroupActivity extends AppCompatActivity {
                                 MemberSchedule.setEndTime(
                                         new Time(scheduleInfo.getEndTimeHour(), scheduleInfo.getEndTimeMinute()));
                                 unavailable.add(MemberSchedule);
+                                Log.e(TAG, "onComplete: ");
                                 setArrayValue(MemberSchedule);
                             }
                             GroupTimetable.add(unavailable);
@@ -154,9 +143,11 @@ public class EachGroupActivity extends AppCompatActivity {
         if (requestCode == REQUEST_ADD) {
             if (resultCode == FixActivity.RESULT_OK_ADD) {
                 Schedule schedule = (Schedule)data.getSerializableExtra("schedule");
-                if(checkFixTime(schedule))
+                if(checkFixTime(schedule)) {
                     // 그룹원들한테 픽스된 스케쥴 넣어주기
                     scatterScheduleToMember(schedule);
+                    Init();
+                }
                 else
                     StartToast("추가 불가능");
             } else if(resultCode == FixActivity.RESULT_FAIL_ADD) {
@@ -176,6 +167,10 @@ public class EachGroupActivity extends AppCompatActivity {
         int end_m = sample.getEndTime().getMinute();
         int end_h = sample.getEndTime().getHour();
 
+        // 인덱스 예외 방지용, 철웅 추가
+        if(IndexOutOfBoundsCheck(start_h, start_m, end_h, end_m))
+            return;
+
         int start_index, end_index;
 
         if (start_m == 0){
@@ -193,6 +188,11 @@ public class EachGroupActivity extends AppCompatActivity {
         for(int i = start_index; i <= end_index; i++){
             check_time[ch_day][i] = 1;
         }
+    }
+
+    // 시작 시간이나 끝나는 시간이 0이면 index가 음수가 돼서 IndexOutOfBounds 예외 발생.
+    private boolean IndexOutOfBoundsCheck(int startH, int startM, int endH, int endM) {
+        return startH == 0 || startM == 0 || endH == 0 || endM == 0;
     }
 
     private boolean checkFixTime(Schedule ss){

@@ -236,7 +236,8 @@ public class GroupFragment extends Fragment {
     }
 
     private boolean isAvailable(GroupContent temp) {
-        if(temp.getUserList().size() < temp.getMaxNum()) {
+        if(temp.getUserList().size() >=
+                temp.getMaxNum()) {
             StartToast("그룹이 꽉 찼습니다.");
             return true;
         }

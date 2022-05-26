@@ -7,7 +7,6 @@
     android:orientation="vertical">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -19,21 +18,20 @@
         app:srcCompat="@drawable/group1" />
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text1"
+            android:id="@+id/groupNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="그룹명"
-            android:textSize="30dp"
-            android:textColor="@color/black"/>
+            android:textColor="#8BC34A"
+            android:textSize="30dp" />
 
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/memberNumTextView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="인원 수"
