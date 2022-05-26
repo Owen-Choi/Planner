@@ -236,7 +236,8 @@ public class GroupFragment extends Fragment {
     }
 
     private boolean isAvailable(GroupContent temp) {
-        if(temp.getUserList().size() <=
+        Log.e(TAG, "isAvailable: " + temp.getUserList().size());
+        if(temp.getUserList().size() <
                 temp.getMaxNum()) {
             return true;
         }
