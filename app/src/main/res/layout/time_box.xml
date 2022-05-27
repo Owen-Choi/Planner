@@ -4,7 +4,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
         >
         <Spinner
             android:id="@+id/day_spinner"
@@ -19,6 +18,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="10:00"
+            android:fontFamily="@font/ilovemilk"
             android:textColor="#8BC34A"
             />
         <TextView
@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text=" - "
+            android:fontFamily="@font/ilovemilk"
             android:textColor="#8BC34A"
             />
         <TextView
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="13:30"
+            android:fontFamily="@font/ilovemilk"
             android:textColor="#8BC34A"
             />
     </LinearLayout>

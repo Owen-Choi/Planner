@@ -42,7 +42,7 @@ public class FixActivity extends AppCompatActivity implements View.OnClickListen
 
     private Context context;
 
-//    private Button deleteBtn;
+    //    private Button deleteBtn;
     private Button fixbtn;
     private EditText gnameEdit;
     private EditText gplaceEdit;

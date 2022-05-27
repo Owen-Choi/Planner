@@ -11,11 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="#FFC107"
-        android:backgroundTint="#FFC107"
+        android:backgroundTint="@color/Orange"
         android:fontFamily="@font/ilovemilk"
         android:text="Fix"
-        android:textColor="@drawable/background_color"
+        android:textColor="@color/cardview_dark_background"
         android:textFontWeight="800" />
 
 

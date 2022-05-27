@@ -51,10 +51,10 @@ public class EachGroupActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_each_group);
         Intent intent = getIntent();
-        int position = intent.getIntExtra("i",1);
-        text1 = findViewById(R.id.groupNameTextView);
-        String temp = String.valueOf(position) + "번 그룹";
-        text1.setText(temp);
+//        int position = intent.getIntExtra("i",1);
+//        text1 = findViewById(R.id.groupNameTextView);
+//        String temp = String.valueOf(position) + "번 그룹";
+//        text1.setText(temp);
         GroupTimetable = findViewById(R.id.groupTimetable);
         groupInfo = (GroupContent) intent.getSerializableExtra("groupContent");
 

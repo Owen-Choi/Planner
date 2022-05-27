@@ -13,7 +13,7 @@
         android:fontFamily="@font/ilovemilk"
         android:gravity="center"
         android:text="그룹 리스트"
-        android:textColor="#7DB2DC"
+        android:textColor="@color/BrightBlue"
         android:textFontWeight="800"
         android:textSize="20dp"
         android:layout_marginTop="10dp"/>
@@ -23,7 +23,7 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="23dp"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

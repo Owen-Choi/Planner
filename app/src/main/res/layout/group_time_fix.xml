@@ -30,20 +30,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Group"
+            android:textColorHint="#8BC34A"
             android:fontFamily="@font/ilovemilk"
             android:textFontWeight="500"
             android:layout_marginBottom="10dp"
-            android:textColor="#8BC34A"/>
+            android:textColor="@color/cardview_dark_background"/>
 
         <EditText
             android:id="@+id/place_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Place"
+            android:textColorHint="#8BC34A"
             android:fontFamily="@font/ilovemilk"
             android:textFontWeight="500"
             android:layout_marginBottom="10dp"
-            android:textColor="#8BC34A"/>
+            android:textColor="@color/cardview_dark_background"/>
 
 
         <EditText
@@ -51,10 +53,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Meeting Detail"
+            android:textColorHint="#8BC34A"
             android:fontFamily="@font/ilovemilk"
             android:textFontWeight="500"
             android:layout_marginBottom="10dp"
-            android:textColor="#8BC34A"/>
+            android:textColor="@color/cardview_dark_background"/>
 
         <include layout="@layout/time_box" />
 
