@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.techtown.planner.service.ConditionCheckingCompliation;
 
-public class ScheduleDuplicationCheck {
+public class ScheduleDuplicationTest {
 
     ConditionCheckingCompliation ccc;
     int[][] check_time = new int[5][21];
@@ -16,7 +16,7 @@ public class ScheduleDuplicationCheck {
 
 
     @Before
-    public void 일정_초기화() {
+    public void Schedule_Initalization() {
         ccc = new ConditionCheckingCompliation();
         sampleSchedule = new Schedule();
         sampleSchedule.setDay(1);
@@ -31,7 +31,7 @@ public class ScheduleDuplicationCheck {
     }
 
     @Test
-    public void 일정_중복_확인() {
+    public void Schedule_duplication_checking() {
         Schedule schedule = new Schedule();
         schedule.setStartTime(new Time(11, 30));
         schedule.setEndTime(new Time(14, 0));

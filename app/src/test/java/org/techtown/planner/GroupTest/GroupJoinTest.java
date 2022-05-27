@@ -25,14 +25,14 @@ public class GroupJoinTest {
     }
 
     @Test
-    public void 비밀번호_일치확인() {
+    public void Checking_password() {
         Assert.assertFalse(ccc.PasswordChecker(groupContent, "1234567"));
         Assert.assertFalse(ccc.PasswordChecker(groupContent, "12345678"));
         Assert.assertTrue(ccc.PasswordChecker(groupContent, "123456789"));
     }
 
     @Test
-    public void 최대인원_초과여부() {
+    public void Maximum_checking() {
         // 그룹의 최대 인원은 7명이다. 이 수를 넘으면 false가 반환되어야 함.
         Assert.assertTrue(ccc.isAvailable(groupContent, 6));
         Assert.assertTrue(ccc.isAvailable(groupContent, 4));
@@ -42,7 +42,7 @@ public class GroupJoinTest {
     }
 
     @Test
-    public void 중복참여_확인() {
+    public void duplicate_participation_checking() {
         // 방에는 userID가 1부터 7까지인 사람들이 참여하고 있다.
         // 이미 참여한 사랃믈의 id를 입력받으면 true가 반환되어야 한다.
         Assert.assertTrue(ccc.already_joined(groupContent, "1"));

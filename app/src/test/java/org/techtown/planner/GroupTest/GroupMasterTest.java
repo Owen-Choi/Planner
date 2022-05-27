@@ -21,7 +21,7 @@ public class GroupMasterTest {
     }
 
     @Test
-    public void 그룹_생성_조건확인() {
+    public void Group_creation_condition() {
         // 조건이 필터링을 잘 하는가
         Assert.assertFalse(ccc.CheckCondition("그룹", 3, "1234"));
         Assert.assertFalse(ccc.CheckCondition("그룹", 10, "1234"));
@@ -32,9 +32,17 @@ public class GroupMasterTest {
     }
 
     @Test
-    public void 일정픽스_권한확인() {
+    public void schedule_fix_permission() {
         Assert.assertFalse(ccc.permissionCheck(groupContent, "memberID"));
         Assert.assertTrue(ccc.permissionCheck(groupContent, "masterID"));
+    }
+
+    @Test
+    public void fixCondition() {
+        Assert.assertTrue(ccc.fixCondition("일정이름", "일정위치", "세부내용"));
+        Assert.assertFalse(ccc.fixCondition("", "일정위치", "세부내용"));
+        Assert.assertFalse(ccc.fixCondition("일정이름", "", "세부내용"));
+        Assert.assertFalse(ccc.fixCondition("일정이름", "일정위치", ""));
     }
 
 }

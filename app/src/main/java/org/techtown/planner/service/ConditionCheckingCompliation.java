@@ -86,4 +86,30 @@ public class ConditionCheckingCompliation {
         }
         return check;
     }
+
+    // fixActivity의 일정 픽스 로직
+    public boolean fixCondition(String groupName, String groupPlace, String meeting){
+        if(groupName.length() <=0 || groupPlace.length() <=0 || meeting.length() <= 0)
+            return false;
+        return true;
+    }
+
+    // 로그인 조건 확인 로직
+    public boolean SignInConditionChecker(String EmailValue, String PasswordValue) {
+        if(EmailValue.length() != 0 && PasswordValue.length() != 0)
+            return true;
+        else
+            return false;
+    }
+
+    // 회원가입 조건 확인 로직
+    public boolean SignUpConditionChecker(String EmailValue, String PasswordValue, String NicknameValue,
+                                     String NameValue, String BirthDateValue, String gender) {
+        if (EmailValue.length() != 0 && PasswordValue.length() != 0 && NicknameValue.length() != 0
+                && NameValue.length() != 0 && BirthDateValue.length() != 0 && gender.length() != 0)
+            return true;
+        else
+            return false;
+    }
+
 }
