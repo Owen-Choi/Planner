@@ -3,6 +3,8 @@ package org.techtown.planner.service;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.github.tlaabs.timetableview.Schedule;
+
 import org.techtown.planner.domain.Group.GroupContent;
 
 import java.util.ArrayList;
@@ -44,8 +46,8 @@ public class ConditionCheckingCompliation {
     }
 
     // GroupFragment의 이미 참여한 그룹인지 확인하는 로직
-    private boolean already_joined(ArrayList<String> userList, String myUid) {
-        for (String memberUid : userList) {
+    public boolean already_joined(GroupContent groupContent, String myUid) {
+        for (String memberUid : groupContent.getUserList()) {
             if(myUid.equals(memberUid))
                 // 이미 가입한 그룹.
                 return true;
@@ -53,4 +55,35 @@ public class ConditionCheckingCompliation {
         return false;
     }
 
+
+    // EachGroupActivity의 시간 중복 확인 로직 from 채영
+    public boolean checkFixTime(int[][] check_time, Schedule ss){
+        int group_day = ss.getDay();
+        int g_start_m = ss.getStartTime().getMinute();
+        int g_start_h = ss.getStartTime().getHour();
+        int g_end_m = ss.getEndTime().getMinute();
+        int g_end_h = ss.getEndTime().getHour();
+        boolean check = true;
+
+        int g_start_idx, g_end_idx;
+
+        if (g_start_m == 0){
+            g_start_idx = g_start_h - 9;
+        } else {
+            g_start_idx = g_start_h - 8;
+        }
+
+        if (g_end_m == 0){
+            g_end_idx = g_end_h - 9;
+        } else {
+            g_end_idx = g_end_h - 8;
+        }
+        for(int i = g_start_idx; i <= g_end_idx; i++){
+            if(check_time[group_day][i] == 1){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    }
 }
