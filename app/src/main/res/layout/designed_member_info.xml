@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:background="@color/Ivory">
+    android:background="@color/BrightBlue">
 
     <TextView
         android:id="@+id/MemberInfoTextView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginLeft="5dp"
         android:editable="false"
+        android:fontFamily="@font/ilovemilk"
         android:gravity="center"
         android:text="회원정보"
-        android:textColor="@color/DarkBrown"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/ilovemilk"
+        android:textColor="@color/Ivory"
         android:textFontWeight="900"
-        android:layout_marginLeft="5dp"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -31,14 +31,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:src="@drawable/ic_baseline_person_pin_24" />
+            android:src="@drawable/ic_baseline_person_pin_24"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/NameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="유저 닉네임"
-            android:textColor="@color/BrightOrange"
+            android:textColor="@color/DarkBrown"
             android:textSize="18dp"
             android:textStyle="bold"
             android:fontFamily="@font/ilovemilk"
@@ -49,17 +51,20 @@
 
     <TextView
         android:id="@+id/NicknameInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
         android:text="Name"
-        android:textAlignment="viewStart"
+        android:gravity="center"
+        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/DarkBrown"
-        android:layout_marginLeft="5dp"/>
+        android:textColor="@color/purple_700"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/border"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -70,35 +75,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:src="@drawable/ic_baseline_location_city_24" />
+            android:src="@drawable/ic_baseline_location_city_24"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/AddressView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="이메일"
-            android:textColor="@color/BrightOrange"
+            android:textColor="@color/DarkBrown"
             android:textSize="18dp"
             android:textStyle="bold"
             android:fontFamily="@font/ilovemilk"
             android:textFontWeight="500"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 
     <TextView
         android:id="@+id/EmailInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
         android:text="Address"
-        android:textAlignment="viewStart"
+        android:gravity="center"
+        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/DarkBrown"
-        android:layout_marginLeft="5dp"/>
+        android:textColor="@color/purple_700"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/border"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -109,35 +120,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:src="@drawable/ic_baseline_cake_24" />
+            android:src="@drawable/ic_baseline_cake_24"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"/>
 
         <TextView
             android:id="@+id/DateView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="생년월일"
-            android:textColor="@color/BrightOrange"
+            android:textColor="@color/DarkBrown"
             android:textSize="18dp"
             android:textStyle="bold"
             android:fontFamily="@font/ilovemilk"
             android:textFontWeight="500"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 
     <TextView
         android:id="@+id/BirthDateInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:text="Date"
-        android:textAlignment="viewStart"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
         android:textSize="16sp"
         android:textStyle="bold"
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/DarkBrown"
-        android:layout_marginLeft="5dp"/>
+        android:textColor="@color/purple_700"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/border"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -148,37 +165,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:src="@drawable/ic_baseline_female_24" />
+            android:src="@drawable/ic_baseline_female_24"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_male_24" />
+            android:src="@drawable/ic_baseline_male_24"
+            android:layout_gravity="center" />
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="성별"
-            android:textColor="@color/BrightOrange"
+            android:textColor="@color/DarkBrown"
             android:textSize="18dp"
             android:textStyle="bold"
             android:fontFamily="@font/ilovemilk"
             android:textFontWeight="500"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 
     <TextView
         android:id="@+id/GenderInfo"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="PhoneNumber"
-        android:textAlignment="viewStart"
+        android:text="Gender"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
         android:textSize="16sp"
         android:textStyle="bold"
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/DarkBrown"/>
+        android:textColor="@color/purple_700"
+        android:background="@drawable/border"/>
 
 
 </LinearLayout>
