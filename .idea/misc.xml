@@ -9,15 +9,45 @@
         <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_each_group.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/dlrhd/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_group.xml" value="0.2" />
         <entry key="..\:/Users/dlrhd/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/border.xml" value="0.1465" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/border_green.xml" value="0.1465" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/btn_green.xml" value="0.1465" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/dialog_background.xml" value="0.124" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/dialog_background_round.xml" value="0.1465" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.1465" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/title_background.xml" value="0.124" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/drawable/title_background_btn.xml" value="0.124" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/font/font.xml" value="0.2712962962962963" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_dialog_custom.xml" value="0.151268115942029" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.1537037037037037" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_edit.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_group_add.xml" value="0.32100052110474203" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_home.xml" value="0.1537037037037037" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_main.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_member_info.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/content_group.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/custom_dialog_new_group.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/designed_content_group.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/fix_appbar.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_each_group.xml" value="0.184375" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_my_group.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/group_time_fix.xml" value="0.3052536231884058" />
+        <entry key="..\:/Users/oco60/AndroidStudioProjects/Planner/app/src/main/res/layout/layout_green_dialog.xml" value="0.151268115942029" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/background_color.xml" value="0.2515625" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/border.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/btn_green.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2515625" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_cake_24.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_groups_24.xml" value="0.2515625" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_location_city_24.xml" value="0.2515625" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_kitty.xml" value="0.2515625" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/ic_profile.xml" value="0.2515625" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/drawable/round.xml" value="0.2515625" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.15443840579710144" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_edit.xml" value="0.1743659420289855" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_home.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_main.xml" value="0.23541666666666666" />
@@ -27,67 +57,37 @@
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_sign_up.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_time_picker.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_timetable.xml" value="0.1897644927536232" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/content_group.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/designed_content_group.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/designed_member_info.xml" value="0.18614130434782608" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/designed_sign_up.xml" value="0.18614130434782608" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/edit_appbar.xml" value="0.1897644927536232" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/fix_appbar.xml" value="0.1503623188405797" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_group.xml" value="0.1897644927536232" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/group_time_fix.xml" value="0.1503623188405797" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/only_time_table.xml" value="0.1897644927536232" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/schedule_test.xml" value="0.2" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/temp.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/layout/time_box.xml" value="0.1897644927536232" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/menu/bottom_menu.xml" value="0.23541666666666666" />
+        <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/menu/group_menu.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/menu/setting_menu.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/xml/root_preferences.xml" value="0.264" />
         <entry key="..\:/Users/oldst/AndroidStudioProjects/Planner/app/src/main/res/xml/settings_preference.xml" value="0.2" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/background_color.xml" value="0.1425" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/border.xml" value="0.175" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/border_green.xml" value="0.1005" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/dialog_background_round.xml" value="0.152" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.102" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/ic_baseline_cake_24.xml" value="0.133" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/ic_baseline_female_24.xml" value="0.133" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/ic_baseline_location_city_24.xml" value="0.133" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/ic_baseline_male_24.xml" value="0.133" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.133" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/round.xml" value="0.175" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/round_red.xml" value="0.1005" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/drawable/round_yellow.xml" value="0.1005" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/font/font.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_custom_dialog.xml" value="0.1" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_each_group.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_edit.xml" value="0.2" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_group_add.xml" value="0.264" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_edit.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_group_add.xml" value="0.15715579710144928" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_home.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_list_from_chae_chae.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_member_info.xml" value="0.264" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_password_init.xml" value="0.16770833333333332" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_time_picker.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/activity_timetable.xml" value="0.4" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/content_group.xml" value="0.4" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/custom_dialog.xml" value="0.264" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/custom_dialog_group_pw.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/custom_dialog_new_group.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/designed_content_group.xml" value="0.264" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/designed_member_info.xml" value="0.2" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/designed_sign_up.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/dialog_background_round.xml" value="0.13451086956521738" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/edit_appbar.xml" value="0.16" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fix_appbar.xml" value="0.16" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_add.xml" value="0.2" />
+        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/content_group.xml" value="0.15715579710144928" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_each_group.xml" value="0.1" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_group.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_home.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/fragment_my_group.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/group_pw.xml" value="0.1" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/group_time_fix.xml" value="0.2" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/schedule_test.xml" value="0.16770833333333332" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/layout/time_box.xml" value="0.264" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/menu/bottom_menu.xml" value="0.20625" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/menu/group_menu.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/menu/my_group.xml" value="0.1" />
         <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/menu/setting_menu.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/sun56/workspace/Planner/app/src/main/res/xml/settings_preference.xml" value="0.1" />
       </map>
     </option>
   </component>

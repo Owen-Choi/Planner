@@ -46,7 +46,7 @@
                 android:scaleType="center"
                 android:layout_marginRight="15dp"/>
             <Button
-                android:text="save"
+                android:text="ok"
                 android:textSize="10dp"
                 android:layout_marginLeft="15dp"
                 android:id="@+id/btnSave_ng"
