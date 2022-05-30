@@ -11,6 +11,9 @@
             android:layout_height="wrap_content"
             android:spinnerMode="dialog"
             android:entries="@array/days"
+            android:background="@color/BrightGreen"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp"
             />
         <TextView
             android:id="@+id/start_time"
@@ -18,12 +21,16 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="10:00"
+            android:fontFamily="@font/ilovemilk"
+            android:textColor="#8BC34A"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text=" - "
+            android:fontFamily="@font/ilovemilk"
+            android:textColor="#8BC34A"
             />
         <TextView
             android:id="@+id/end_time"
@@ -31,6 +38,8 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="13:30"
+            android:fontFamily="@font/ilovemilk"
+            android:textColor="#8BC34A"
             />
     </LinearLayout>
 </merge>

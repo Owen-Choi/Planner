@@ -28,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
 
             <TextView
                 android:id="@+id/groupNameTextView"
@@ -39,12 +40,16 @@
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="700"
+                android:layout_marginBottom="5dp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -59,7 +64,9 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:layout_marginLeft="5dp"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"/>
             </LinearLayout>
 
         </LinearLayout>

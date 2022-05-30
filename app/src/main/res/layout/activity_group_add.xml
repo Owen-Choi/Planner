@@ -6,45 +6,166 @@
     android:layout_height="match_parent"
     tools:context=".service.activities.GroupAddActivity"
     android:orientation="vertical"
-    android:background="@drawable/background_color">
+    android:background="@color/Ivory">
 
 
-    <ImageView
-        android:id="@+id/imageView6"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="328dp"
-        app:srcCompat="@drawable/meeting" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:srcCompat="@drawable/group_image3"
+                android:layout_marginTop="15dp"/>
 
-    <EditText
-        android:id="@+id/GroupNameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="그룹명을 입력해주세요"
-        android:inputType="textPersonName"
-        android:textColorHint="#8BC34A" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text=" 그룹명"
+                android:textStyle="bold"
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="600"/>
 
-    <EditText
-        android:id="@+id/MaxPeopleNumEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="최대 인원수를 입력해주세요"
-        android:inputType="textPersonName"
-        android:textColorHint="#8BC34A" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/GroupNameEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:hint=" 그룹명을 입력해주세요"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="390dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"/>
+            </FrameLayout>
 
-    <EditText
-        android:id="@+id/GroupPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="비밀번호를 입력주세요"
-        android:inputType="textPersonName"
-        android:textColorHint="#8BC34A" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:text=" 멤버 수"
+                android:textStyle="bold"
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="600"/>
 
-    <Button
-        android:id="@+id/GroupCreateButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="생성" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/MaxPeopleNumEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:hint=" 최대 인원수를 입력해주세요"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="390dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:text=" 그룹 비밀번호"
+                android:textStyle="bold"
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="600"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/GroupPasswordEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:hint=" 비밀번호를 입력주세요"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="390dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"/>
+
+            </FrameLayout>
+
+
+        <!--    <Button-->
+        <!--        android:id="@+id/GroupCreateButton"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="20dp"-->
+        <!--        android:backgroundTint="#FFC107"-->
+        <!--        android:fontFamily="@font/ilovemilk"-->
+        <!--        android:paddingTop="0dp"-->
+        <!--        android:paddingBottom="0dp"-->
+        <!--        android:text="생성"-->
+        <!--        android:textFontWeight="600"-->
+        <!--        android:textSize="25dp" />-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/GroupCreateButton"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/BrightOrange"
+                android:layout_marginBottom="20dp"
+                android:elevation="20dp"
+                android:text="그룹 생성"
+                android:textStyle="bold"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="700"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

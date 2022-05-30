@@ -7,33 +7,33 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/plus_floating_button"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        app:fabCustomSize="45dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:fabCustomSize="50dp"
         android:src="@drawable/ic_baseline_calendar_month_24"
         android:layout_gravity="bottom|end"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:contentDescription="TODO"
         />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/clear_floating_button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:fabCustomSize="30dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:fabCustomSize="35dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:contentDescription="TODO"
         android:src="@drawable/ic_baseline_horizontal_rule_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_schedule_floating_button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:fabCustomSize="30dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:fabCustomSize="35dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:contentDescription="TODO"
         android:src="@drawable/ic_baseline_add_24" />
 

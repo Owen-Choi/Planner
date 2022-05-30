@@ -7,14 +7,14 @@
     tools:context=".service.activities.EachGroupActivity"
     android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/groupNameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:gravity="center"/>
+<!--        <TextView-->
+<!--            android:id="@+id/groupNameTextView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="15dp"-->
+<!--            android:gravity="center"/>-->
 
         <com.github.tlaabs.timetableview.TimetableView
             android:id="@+id/groupTimetable"
@@ -22,6 +22,8 @@
             android:layout_height="wrap_content"
             app:header_highlight_image_size="36dp"
             app:header_highlight_type="image"
-            app:header_title="@array/header_title" />
+            app:header_title="@array/header_title"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500" />
 
 </LinearLayout>

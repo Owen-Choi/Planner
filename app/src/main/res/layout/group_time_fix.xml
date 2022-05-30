@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".service.activities.EditActivity">
+    tools:context=".service.activities.EditActivity"
+    android:background="@color/Ivory">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,27 +19,80 @@
             android:text="그룹 시간 정하기"
             android:textSize="25dp"
             android:gravity="center"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="900"
+            android:textColor="@color/DarkBrown"/>
 
-        <EditText
-            android:id="@+id/group_name_edit"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Group" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/group_name_edit"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:hint=" Group"
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/cardview_dark_background" />
+            <TextView
+                android:layout_width="370dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border_green"/>
+        </FrameLayout>
 
-        <EditText
-            android:id="@+id/place_edit"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Place" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/place_edit"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:hint=" Place"
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/cardview_dark_background" />
+            <TextView
+                android:layout_width="370dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border_green"/>
+        </FrameLayout>
 
 
-        <EditText
-            android:id="@+id/meeting"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Meeting Detail" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/meeting"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:hint=" Meeting Detail"
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/cardview_dark_background" />
+            <TextView
+                android:layout_width="370dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border_green"/>
+        </FrameLayout>
+
 
         <include layout="@layout/time_box" />
 

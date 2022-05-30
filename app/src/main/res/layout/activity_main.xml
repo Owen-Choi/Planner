@@ -22,7 +22,9 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:srcCompat="@drawable/kindpng_5706188" />
+                app:srcCompat="@drawable/kindpng_5706188"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"/>
 
             <EditText
                 android:id="@+id/SignInEmailEditText"
@@ -32,7 +34,9 @@
                 android:hint="@string/signIn_email"
                 android:inputType="textEmailAddress"
                 android:textColor="#8BC34A"
-                android:textColorHint="#8BC34A" />
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <EditText
                 android:id="@+id/SignInPasswordEditText"
@@ -42,16 +46,20 @@
                 android:hint="@string/signIn_pw"
                 android:inputType="textPassword"
                 android:textColor="#8BC34A"
-                android:textColorHint="#8BC34A" />
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <Button
                 android:id="@+id/SignInButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
-                android:background="@drawable/btn_green"
+                android:backgroundTint="@color/BrightGreen"
                 android:text="Sign In"
-                android:textColor="#FFC107" />
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <Button
                 android:id="@+id/findPasswordButton"
@@ -59,13 +67,20 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFC107"
                 android:text="forgot password?"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
 
             <Button
                 android:id="@+id/MoveToSignUpButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign Up" />
+                android:backgroundTint="@color/BrightBlue"
+                android:text="Sign Up"
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

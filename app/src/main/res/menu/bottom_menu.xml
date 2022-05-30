@@ -4,7 +4,7 @@
         android:id="@+id/menu_schedule"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_schedule_24"
-        android:title="Schedule"/>
+        android:title="Schedule" />
 
     <item
         android:id="@+id/menu_group"

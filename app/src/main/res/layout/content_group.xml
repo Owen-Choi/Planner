@@ -15,7 +15,9 @@
         android:id="@+id/poster"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/group1" />
+        app:srcCompat="@drawable/group1"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="5dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +30,13 @@
             android:layout_height="wrap_content"
             android:text="그룹명"
             android:textColor="#FFC107"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:id="@+id/memberNumTextView1"
@@ -36,7 +44,13 @@
             android:layout_height="wrap_content"
             android:text="인원 수"
             android:textSize="15dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/ilovemilk"
+            android:textFontWeight="500"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"/>
 
 
     </LinearLayout>

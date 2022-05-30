@@ -19,6 +19,8 @@
         app:sticker_colors="@array/default_sticker_color"
         app:start_time="9"
         app:header_highlight_color="@color/teal_700"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"
         />
 
 </FrameLayout>

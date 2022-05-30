@@ -3,21 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Ivory">
 
 
     <TextView
-        android:gravity="center"
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="그룹 리스트" />
+        android:fontFamily="@font/ilovemilk"
+        android:gravity="center"
+        android:text="그룹 리스트"
+        android:textColor="@color/BrightBlue"
+        android:textFontWeight="800"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"/>
 
 
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

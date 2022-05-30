@@ -3,21 +3,32 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
     >
 
     <Button
         android:id="@+id/delete_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_red"
+        android:fontFamily="@font/ilovemilk"
         android:text="delete"
-        />
+        android:textFontWeight="600"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/submit_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_yellow"
+        android:fontFamily="@font/ilovemilk"
+        android:text="Submit"
+        android:textFontWeight="600" />
 
 
 </LinearLayout>

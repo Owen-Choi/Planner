@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/Ivory">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,9 +31,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="반가워요!"
-                    android:textColor="@color/BrightBlue"
+                    android:textColor="@color/DarkBrown"
                     android:textSize="25dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="900"/>
 
 
             </LinearLayout>
@@ -44,7 +47,9 @@
                 android:layout_marginBottom="10dp"
                 android:text=" 로그인 정보"
                 android:textStyle="bold"
-                android:textColor="@color/BrightBlue" />
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="600"/>
 
             <EditText
                 android:id="@+id/SignUpEmailEditText"
@@ -56,7 +61,11 @@
                 android:hint="   이메일"
                 android:width="10dp"
                 android:background="@drawable/border"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:textColorHint="@color/BrightBlue"/>
 
             <EditText
                 android:id="@+id/SignUpPasswordEditText"
@@ -67,18 +76,24 @@
                 android:cursorVisible="false"
                 android:hint="   비밀번호"
                 android:background="@drawable/border"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:textColorHint="@color/BrightBlue"/>
 
 
             <TextView
                 android:id="@+id/Seperator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:text=" 회원 정보"
                 android:textStyle="bold"
-                android:textColor="@color/BrightBlue" />
+                android:textColor="@color/DarkBrown"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="600" />
 
             <EditText
                 android:id="@+id/SignUpNameEditText"
@@ -89,7 +104,11 @@
                 android:cursorVisible="false"
                 android:hint="   본명"
                 android:background="@drawable/border"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:textColorHint="@color/BrightBlue"/>
 
             <EditText
                 android:id="@+id/SignUpNicknameEditText"
@@ -100,7 +119,11 @@
                 android:cursorVisible="false"
                 android:hint="   닉네임"
                 android:background="@drawable/border"
-                android:inputType="textPostalAddress" />
+                android:inputType="textPostalAddress"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:textColorHint="@color/BrightBlue"/>
 
 
             <EditText
@@ -112,7 +135,11 @@
                 android:cursorVisible="false"
                 android:hint="   생년월일 YYYY-MM-DD"
                 android:background="@drawable/border"
-                android:inputType="date" />
+                android:inputType="date"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:textColorHint="@color/BrightBlue"/>
 
 
             <RadioGroup
@@ -120,19 +147,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <RadioButton
                     android:id="@+id/FemaleRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="여성" />
+                    android:text="여성        "
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/BrightBlue"/>
 
                 <RadioButton
                     android:id="@+id/MaleRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="남성" />
+                    android:text="남성"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/BrightBlue"/>
 
             </RadioGroup>
 
@@ -142,11 +176,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round"
-                android:backgroundTint="#CDC9C3"
+                android:backgroundTint="@color/BrightBlue"
                 android:layout_marginBottom="20dp"
                 android:elevation="20dp"
                 android:text="회원가입"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="700"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
 
 
         </LinearLayout>

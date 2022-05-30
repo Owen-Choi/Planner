@@ -12,7 +12,9 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="315dp"
-        android:src="@drawable/meeting" />
+        android:src="@drawable/meeting"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="500"/>
 
     <Button
         android:id="@+id/group_add_button"
@@ -20,5 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="#CDDC39"
-        android:text="그룹 추가하기" />
+        android:text="그룹 추가하기"
+        android:fontFamily="@font/ilovemilk"
+        android:textFontWeight="800"
+        android:textSize="20dp"/>
 </LinearLayout>
