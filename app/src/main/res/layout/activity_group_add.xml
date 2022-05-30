@@ -33,23 +33,32 @@
                 android:fontFamily="@font/ilovemilk"
                 android:textFontWeight="600"/>
 
-
-            <EditText
-                android:id="@+id/GroupNameEditText"
-                android:layout_width="370dp"
-                android:layout_height="45dp"
-                android:layout_marginBottom="5dp"
-                android:layout_gravity="center_horizontal"
-                android:ems="10"
-                android:hint=" 그룹명을 입력해주세요"
-                android:textSize="20sp"
-                android:inputType="textPersonName"
-                android:background="@drawable/border"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"
-                android:layout_marginTop="10dp"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/GroupNameEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:hint=" 그룹명을 입력해주세요"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="390dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"/>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -62,22 +71,32 @@
                 android:fontFamily="@font/ilovemilk"
                 android:textFontWeight="600"/>
 
-            <EditText
-                android:id="@+id/MaxPeopleNumEditText"
-                android:layout_width="370dp"
-                android:layout_height="45dp"
-                android:layout_marginBottom="5dp"
-                android:layout_gravity="center_horizontal"
-                android:ems="10"
-                android:hint=" 최대 인원수를 입력해주세요"
-                android:textSize="20sp"
-                android:inputType="textPersonName"
-                android:background="@drawable/border"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"
-                android:layout_marginTop="10dp"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/MaxPeopleNumEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:hint=" 최대 인원수를 입력해주세요"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="390dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"/>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -90,22 +109,34 @@
                 android:fontFamily="@font/ilovemilk"
                 android:textFontWeight="600"/>
 
-            <EditText
-                android:id="@+id/GroupPasswordEditText"
-                android:layout_width="370dp"
-                android:layout_height="45dp"
-                android:layout_marginBottom="15dp"
-                android:layout_gravity="center_horizontal"
-                android:ems="10"
-                android:hint=" 비밀번호를 입력주세요"
-                android:textSize="20sp"
-                android:inputType="textPersonName"
-                android:background="@drawable/border"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"
-                android:layout_marginTop="10dp"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/GroupPasswordEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:hint=" 비밀번호를 입력주세요"
+                    android:textSize="20sp"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="390dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"/>
+
+            </FrameLayout>
+
 
         <!--    <Button-->
         <!--        android:id="@+id/GroupCreateButton"-->

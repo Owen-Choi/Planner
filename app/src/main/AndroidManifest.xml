@@ -42,7 +42,6 @@
         <activity
             android:name=".service.activities.SignUpActivity"
             android:exported="true" />
-
         <activity
             android:name=".service.activities.MainActivity"
             android:exported="true">

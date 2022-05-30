@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".service.activities.EditActivity"
-    android:background="@drawable/background_color">
-
+    android:background="@color/Ivory">
 
 
     <TextView
@@ -20,45 +19,81 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="900"
-        android:textColor="@color/cardview_dark_background"/>
+        android:textColor="@color/DarkBrown"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/subject_edit"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Subject"
-            android:textColorHint="#8BC34A"
-            android:fontFamily="@font/ilovemilk"
-            android:textFontWeight="500"
-            android:textColor="@color/cardview_dark_background"
-            android:layout_marginBottom="10dp"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/subject_edit"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Group"
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown" />
+            <TextView
+                android:layout_width="370dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border_green"/>
+        </FrameLayout>
 
-        <EditText
-            android:id="@+id/classroom_edit"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Classroom"
-            android:textColorHint="#8BC34A"
-            android:fontFamily="@font/ilovemilk"
-            android:textFontWeight="500"
-            android:textColor="@color/cardview_dark_background"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/classroom_edit"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:hint=" Place"
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:layout_marginTop="10dp" />
+            <TextView
+                android:layout_width="370dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_green"/>
+        </FrameLayout>
 
-        <EditText
-            android:id="@+id/professor_edit"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Professor"
-            android:textColorHint="#8BC34A"
-            android:fontFamily="@font/ilovemilk"
-            android:textFontWeight="500"
-            android:textColor="@color/cardview_dark_background"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/professor_edit"
+                android:layout_width="350dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:hint=" Meeting Detail"
+                android:textColorHint="#8BC34A"
+                android:fontFamily="@font/ilovemilk"
+                android:textFontWeight="500"
+                android:textColor="@color/DarkBrown"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+            <TextView
+                android:layout_width="370dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border_green"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+        </FrameLayout>
+
+
 
         <include layout="@layout/time_box"/>
 

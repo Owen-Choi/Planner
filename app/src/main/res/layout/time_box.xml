@@ -11,6 +11,9 @@
             android:layout_height="wrap_content"
             android:spinnerMode="dialog"
             android:entries="@array/days"
+            android:background="@color/BrightGreen"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp"
             />
         <TextView
             android:id="@+id/start_time"

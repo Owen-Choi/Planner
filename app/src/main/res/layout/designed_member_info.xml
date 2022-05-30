@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:background="@color/BrightBlue">
+    android:background="@color/Ivory">
 
     <TextView
         android:id="@+id/MemberInfoTextView"
@@ -17,7 +17,7 @@
         android:fontFamily="@font/ilovemilk"
         android:gravity="center"
         android:text="회원정보"
-        android:textColor="@color/Ivory"
+        android:textColor="@color/BrightGreen"
         android:textFontWeight="900"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -29,11 +29,11 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/ic_baseline_person_pin_24"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_baseline_person_24" />
 
         <TextView
             android:id="@+id/NameView"
@@ -62,7 +62,7 @@
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/BrightGreen"
         android:layout_marginLeft="5dp"
         android:background="@drawable/border"/>
 
@@ -107,7 +107,7 @@
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/BrightGreen"
         android:layout_marginLeft="5dp"
         android:background="@drawable/border"/>
 
@@ -118,11 +118,11 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:src="@drawable/ic_baseline_cake_24"
+            android:layout_height="31dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_baseline_cake_24" />
 
         <TextView
             android:id="@+id/DateView"
@@ -152,7 +152,7 @@
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/BrightGreen"
         android:layout_marginLeft="5dp"
         android:background="@drawable/border"/>
 
@@ -201,7 +201,7 @@
         android:fontFamily="@font/ilovemilk"
         android:textFontWeight="500"
         android:layout_marginTop="5dp"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/BrightGreen"
         android:background="@drawable/border"/>
 
 

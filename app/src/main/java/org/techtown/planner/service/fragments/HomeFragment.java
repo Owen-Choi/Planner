@@ -4,20 +4,23 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.github.tlaabs.timetableview.Schedule;
@@ -37,6 +40,7 @@ import org.techtown.planner.domain.schedule.ScheduleInfo;
 import org.techtown.planner.service.activities.EditActivity;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -243,27 +247,79 @@ public class HomeFragment extends Fragment {
     }
 
     private void DialogManager() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle("Timetable Clear")
-                .setMessage("시간표를 초기화 하시겠습니까?")
-                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        ClearDB();
-                        timetable.removeAll();
-                        Toast.makeText(getActivity(), "table cleared", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
+        //커스텀 dialog 로 바꿈
+        CustomDialog dlg = new CustomDialog(getContext());
+        dlg.show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+//                .setTitle("Timetable Clear")
+//                .setMessage("시간표를 초기화 하시겠습니까?")
+//                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        ClearDB();
+//                        timetable.removeAll();
+//                        Toast.makeText(getActivity(), "table cleared", Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                });
+//        AlertDialog dialog = builder.create();
+//        dialog.setCanceledOnTouchOutside(true);
+//        dialog.show();
+    }
+    class CustomDialog extends Dialog {
 
-                    }
-                });
-        AlertDialog dialog = builder.create();
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.show();
+        private Context mContext;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.custom_dialog);
+
+            // 다이얼로그의 배경을 투명으로 만든다.
+            Objects.requireNonNull(getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            // 커스텀 다이얼로그의 각 위젯들을 정의한다.
+            Button saveButton = findViewById(R.id.btnSave);
+            Button cancelButton = findViewById(R.id.btnCancel);
+
+            // 버튼 리스너 설정
+            saveButton.setOnClickListener(new Button.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // '확인' 버튼 클릭시
+                    // ...코드..
+                    ClearDB();
+                    timetable.removeAll();
+                    Toast.makeText(getActivity(), "table cleared", Toast.LENGTH_SHORT).show();
+                    // Custom Dialog 종료
+                    dismiss();
+                }
+            });
+            cancelButton.setOnClickListener(new Button.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // '취소' 버튼 클릭시
+                    // ...코드..
+                    Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
+                    // Custom Dialog 종료
+                    dismiss();
+                }
+            });
+
+        }
+
+        public CustomDialog(Context mContext) {
+            super(mContext);
+            this.mContext = mContext;
+        }
+
     }
 
 }
+
