@@ -51,36 +51,49 @@
                 android:fontFamily="@font/ilovemilk"
                 android:textFontWeight="600"/>
 
-            <EditText
-                android:id="@+id/SignUpEmailEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:cursorVisible="false"
-                android:hint="   이메일"
-                android:width="10dp"
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/border"
-                android:inputType="textEmailAddress"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"/>
+                android:paddingLeft="10dp">
+                <EditText
+                    android:id="@+id/SignUpEmailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:cursorVisible="false"
+                    android:hint="이메일"
+                    android:width="10dp"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"/>
+            </FrameLayout>
 
-            <EditText
-                android:id="@+id/SignUpPasswordEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:cursorVisible="false"
-                android:hint="   비밀번호"
+
+
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/border"
-                android:inputType="textPassword"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"/>
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="10dp">
+                <EditText
+                    android:id="@+id/SignUpPasswordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:cursorVisible="false"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"/>
+            </FrameLayout>
+
 
 
             <TextView
@@ -95,51 +108,68 @@
                 android:fontFamily="@font/ilovemilk"
                 android:textFontWeight="600" />
 
-            <EditText
-                android:id="@+id/SignUpNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:cursorVisible="false"
-                android:hint="   본명"
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/border"
-                android:inputType="textPersonName"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"/>
-
-            <EditText
-                android:id="@+id/SignUpNicknameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:cursorVisible="false"
-                android:hint="   닉네임"
-                android:background="@drawable/border"
-                android:inputType="textPostalAddress"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"/>
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="10dp">
+                <EditText
+                    android:id="@+id/SignUpNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:cursorVisible="false"
+                    android:hint="본명"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"/>
+            </FrameLayout>
 
 
-            <EditText
-                android:id="@+id/SignUpBirthDateEditText"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:cursorVisible="false"
-                android:hint="   생년월일 YYYY-MM-DD"
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/border"
-                android:inputType="date"
-                android:fontFamily="@font/ilovemilk"
-                android:textFontWeight="500"
-                android:textColor="@color/DarkBrown"
-                android:textColorHint="@color/BrightBlue"/>
+                android:paddingLeft="10dp"
+                android:layout_gravity="center_horizontal">
+                <EditText
+                    android:id="@+id/SignUpNicknameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:cursorVisible="false"
+                    android:hint="닉네임"
+                    android:inputType="textPostalAddress"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"/>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="10dp">
+                <EditText
+                    android:id="@+id/SignUpBirthDateEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:cursorVisible="false"
+                    android:hint="생년월일 YYYY-MM-DD"
+                    android:inputType="date"
+                    android:fontFamily="@font/ilovemilk"
+                    android:textFontWeight="500"
+                    android:textColor="@color/DarkBrown"
+                    android:textColorHint="@color/BrightBlue"/>
+            </FrameLayout>
+
 
 
             <RadioGroup
