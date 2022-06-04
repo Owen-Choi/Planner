@@ -49,6 +49,7 @@ User2 : group member
 
 
 # License of the Open Source
+https://github.com/tlaabs/TimetableView
 ```xml
 Copyright 2019 tlaabs
 
