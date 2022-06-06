@@ -46,7 +46,7 @@ User2 : group member
 ![image](https://user-images.githubusercontent.com/82303989/171807041-926504d4-1c7a-48e9-b81a-d27f188f9501.png)
 
 ## See more details and whole process in the demo video
-
+https://youtu.be/CUnhKAOOPLs
 
 # License of the Open Source
 https://github.com/tlaabs/TimetableView
