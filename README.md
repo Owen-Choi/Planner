@@ -5,9 +5,7 @@ Software Engineering term project
 https://youtu.be/CUnhKAOOPLs
 
 # Screen shots
-### Sign up & Sign in
-##### User1 : group owner,  
-User2 : group member  
+### Sign up & Sign in 
 ![image](https://user-images.githubusercontent.com/82303989/171805362-1d915e46-182f-4f62-a2ab-451e777d40ab.png)
 
 ### Schedule creation
