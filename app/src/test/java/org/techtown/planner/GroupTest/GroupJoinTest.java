@@ -33,7 +33,7 @@ public class GroupJoinTest {
 
     @Test
     public void Maximum_checking() {
-        // 그룹의 최대 인원은 7명이다. 이 수를 넘으면 false가 반환되어야 함.
+        // 테스트 그룹의 최대 인원은 7명이다. 이 수를 넘으면 false가 반환되어야 한다.
         Assert.assertTrue(ccc.isAvailable(groupContent, 6));
         Assert.assertTrue(ccc.isAvailable(groupContent, 4));
         Assert.assertTrue(ccc.isAvailable(groupContent, 2));
@@ -43,7 +43,7 @@ public class GroupJoinTest {
 
     @Test
     public void duplicate_participation_checking() {
-        // 방에는 userID가 1부터 7까지인 사람들이 참여하고 있다.
+        // 방에는 임의의 userID가 1부터 7까지인 사람들이 참여하고 있다.
         // 이미 참여한 사랃믈의 id를 입력받으면 true가 반환되어야 한다.
         Assert.assertTrue(ccc.already_joined(groupContent, "1"));
         Assert.assertTrue(ccc.already_joined(groupContent, "2"));
